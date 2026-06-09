@@ -29,11 +29,23 @@ const fetchRecommendations = async (req, res) => {
         }
 
         const importantTopics = [
-            "graphs",
-            "dp",
+            "implementation",
+            "math",
             "greedy",
-            "binary search"
-        ];
+            "dp",
+            "graphs",
+            "trees",
+            "binary search",
+            "strings",
+            "number theory",
+            "constructive algorithms",
+            "data structures",
+            "sortings",
+            "two pointers",
+            "bitmasks",
+            "brute force",
+            "combinatorics"
+        ];    
 
         const filteredTopics =
             Object.entries(topicCount)

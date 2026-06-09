@@ -47,8 +47,7 @@ const fetchPlacementScore = async (req, res) => {
             "combinatorics"
         ];
 
-        const solvedTopics =
-            new Set();
+        const solvedTopics = new Set();
 
         for (const submission of submissions) {
 
@@ -62,21 +61,46 @@ const fetchPlacementScore = async (req, res) => {
                 ) {
                     solvedTopics.add(tag);
                 }
+
             }
+
         }
 
         const topicCoverage =
             solvedTopics.size;
 
-        // Score Formula
-        let score =
-            (contests * 1) +
-            (problemsSolved * 0.05) +
-            (topicCoverage * 2);
+        /* ==========================
+           NORMALIZED SCORE
+        ========================== */
 
-        if (score > 100) {
-            score = 100;
-        }
+        const contestScore =
+            Math.min(
+                (contests / 300) * 30,
+                30
+            );
+
+        const problemScore =
+            Math.min(
+                (problemsSolved / 5000) * 40,
+                40
+            );
+
+        const topicScore =
+            Math.min(
+                (topicCoverage / 16) * 30,
+                30
+            );
+
+        const score =
+            Math.round(
+                contestScore +
+                problemScore +
+                topicScore
+            );
+
+        /* ==========================
+           LEVEL
+        ========================== */
 
         let level;
 
@@ -94,7 +118,7 @@ const fetchPlacementScore = async (req, res) => {
         }
 
         res.json({
-            score: Math.round(score),
+            score,
             level,
             contests,
             problemsSolved,
@@ -108,6 +132,7 @@ const fetchPlacementScore = async (req, res) => {
         });
 
     }
+
 };
 
 module.exports = {

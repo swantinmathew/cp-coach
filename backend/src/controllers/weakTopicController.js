@@ -49,18 +49,31 @@ const fetchWeakTopics = async (req, res) => {
                 importantTopics.includes(topic)
             );
 
-        // Sort by count (ascending)
-        filteredTopics.sort((a, b) => a[1] - b[1]);
+        const maxCount =
+            Math.max(
+                ...filteredTopics.map(
+                    ([, count]) => count
+                )
+            );
 
-        // Take weakest 3 topics
-        const weakTopics = filteredTopics
-            .slice(0, 3)
-            .map(([topic]) => topic);
+        const weakTopics =
+            filteredTopics
+                .sort((a, b) => a[1] - b[1])
+                .slice(0, 3)
+                .map(([topic, count]) => ({
+
+                    topic,
+
+                    percentage:
+                        Math.round(
+                            (count / maxCount) * 100
+                        )
+
+                }));
 
         res.json({
             weakTopics
-        });
-
+        }); 
     } catch (error) {
 
         res.status(500).json({
@@ -68,8 +81,9 @@ const fetchWeakTopics = async (req, res) => {
         });
 
     }
-};
 
-module.exports = {
-    fetchWeakTopics
-};
+    };
+
+    module.exports = {
+        fetchWeakTopics
+    };

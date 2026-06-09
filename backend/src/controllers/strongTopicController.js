@@ -49,27 +49,41 @@ const fetchStrongTopics = async (req, res) => {
                 importantTopics.includes(topic)
             );
 
-        // Sort by count (ascending)
-        filteredTopics.sort((a, b) => a[1] - b[1]);
+        const maxCount =
+            Math.max(
+                ...filteredTopics.map(
+                    ([, count]) => count
+                )
+            );
 
-        // Take weakest 3 topics
-        const strongTopics = filteredTopics
-            .slice(-3)
-            .map(([topic]) => topic);
+        const strongTopics =
+            filteredTopics
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 3)
+                .map(([topic, count]) => ({
+
+                    topic,
+
+                    percentage:
+                        Math.round(
+                            (count / maxCount) * 100
+                        )
+
+                }));
 
         res.json({
             strongTopics
-        });
+        });    
+        } catch (error) {
 
-    } catch (error) {
+            res.status(500).json({
+                error: error.message
+            });
 
-        res.status(500).json({
-            error: error.message
-        });
+        }
 
-    }
-};
+    };
 
-module.exports = {
-    fetchStrongTopics
-};
+    module.exports = {
+        fetchStrongTopics
+    };
