@@ -11,6 +11,7 @@ import { FiTarget } from "react-icons/fi";
 import { MdOutlineWarningAmber } from "react-icons/md";
 import { GiBiceps } from "react-icons/gi";
 import { BsLightbulb } from "react-icons/bs";
+import {LineChart,Line,XAxis,YAxis, Tooltip,ResponsiveContainer,CartesianGrid} from "recharts";
 
 import "./Dashboard.css";
 
@@ -26,6 +27,7 @@ function Dashboard() {
     const [recommendations, setRecommendations] = useState([]);
     const [weakestTopic, setWeakestTopic] = useState("");
     const [error, setError] = useState("");
+    const [ratingHistory,setRatingHistory] = useState([]);
     useEffect(() => {
         const savedHandle =
             localStorage.getItem(
@@ -49,14 +51,16 @@ function Dashboard() {
                     scoreResponse,
                     weakTopicResponse,
                     strongTopicResponse,
-                    recommendationResponse
+                    recommendationResponse,
+                    ratingResponse
                 ] = await Promise.all([
 
                     API.get(`/profile/${handle}`),
                     API.get(`/placement-score/${handle}`),
                     API.get(`/weak-topic/${handle}`),
                     API.get(`/strong-topic/${handle}`),
-                    API.get(`/recommendation/${handle}`)
+                    API.get(`/recommendation/${handle}`),
+                    API.get(`/rating-history/${handle}`)                   
                 ]);            
 
             if (profileResponse.data.result) {
@@ -97,7 +101,22 @@ function Dashboard() {
             "lastHandle",
             handle
         );
-        }
+        setRatingHistory(
+
+            ratingResponse.data
+                .slice(-20)
+                .map(contest => ({
+
+                    ...contest,
+
+                    date:
+                        new Date(
+                            contest.ratingUpdateTimeSeconds * 1000
+                        ).toLocaleDateString()
+
+                }))
+            );
+    }
 
         catch (error) {
 
@@ -355,24 +374,24 @@ function Dashboard() {
                                             <div className="metric-left">
                                                 <FaTrophy/>
                                                 <span>Contests</span>
+                                            </div>    
                                                 <strong>{placementScore.contests}</strong>
-                                            </div>
-                                            
                                         </div>
                                         <div className="metric-card">
                                             <div className="metric-left">
                                                 <FaBook/>
                                                 <span>Problems Solved</span>
-                                                <strong>{placementScore.problemsSolved}</strong>
-                                            </div>
+                                            </div>    
+                                                <strong>{placementScore.problemsSolved}</strong>  
                                         </div>
                                             
                                         <div className="metric-card">
                                             <div className="metric-left">
                                                 <FaBullseye/>
                                                 <span>Topic Coverage</span>
+                                            </div>    
                                                 <strong>{placementScore.topicCoverage}</strong>
-                                            </div>
+                                            
                                         </div>
                                             
                                     </div>
@@ -382,7 +401,111 @@ function Dashboard() {
                         )
                     }
             </div>
+                {
+                ratingHistory.length > 0 && (
 
+                    <div className="card">
+
+                        <h2 className="card-title">
+
+                            Rating Progress
+
+                        </h2>
+                        <p className="chart-subtitle">
+                            Last 20 contests
+                        </p>
+                        <div className="chart-stats">
+
+                            <div>
+                                <span>Current: </span>
+                                <strong>{profile.rating}</strong>
+                            </div>
+
+                            <div>
+                                <span>Peak: </span>
+                                <strong>{profile.maxRating}</strong>
+                            </div>
+
+                            <div>
+                                <span>Contests: </span>
+                                <strong>{ratingHistory.length}</strong>
+                            </div>
+
+                        </div>
+                        <div
+                            style={{
+                                width:"100%",
+                                height:300
+                            }}
+                        >
+
+                            <ResponsiveContainer>
+
+                                <LineChart
+                                    data={
+                                        ratingHistory}
+                                        margin={{
+                                        top: 10,
+                                        right: 30,
+                                        left: 20,
+                                        bottom: 10
+                                    }}
+                                >
+
+                                    <XAxis
+                                        dataKey=
+                                        "date"
+                                        minTickGap={60}
+                                        tick={{fontSize: 12 }}
+                                    />
+
+                                    <YAxis
+                                        domain={[
+                                            'dataMin - 100',
+                                            'dataMax + 100'
+                                        ]}
+                                    />
+
+                                    <Tooltip
+                                        contentStyle={{
+                                            backgroundColor: "#111",
+                                            border: "1px solid rgba(255,255,255,0.1)",
+                                            borderRadius: "12px",
+                                            color: "#fff"
+                                        }}
+                                        labelStyle={{
+                                            color: "#aaa"
+                                        }}
+                                        formatter={(value) => [value, "Rating"]}
+                                        labelFormatter={(label) =>
+                                            `Date: ${label}`
+                                        }
+                                    />
+
+                                <Line
+                                    type="monotone"
+                                    dataKey="newRating"
+                                    stroke="#4dd0e1"
+                                    strokeWidth={3}
+                                    dot={false}
+                                    activeDot={{
+                                        r:6
+                                    }}
+                                />
+                                <CartesianGrid
+                                    strokeDasharray="3 3"
+                                    opacity={0.1}
+                                />
+                                </LineChart>
+
+                            </ResponsiveContainer>
+
+                        </div>
+
+                    </div>
+
+                )
+            }
             {/* SECOND GRID */}
 
             <div className="stats-grid">

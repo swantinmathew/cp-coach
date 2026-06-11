@@ -7,6 +7,7 @@ const weakTopicRoutes = require("./routes/weakTopicRouter");
 const strongTopicRoutes = require("./routes/strongTopicRoutes");
 const recommendationRoutes = require("./routes/recommendationRoutes");
 const placementScoreRoutes = require("./routes/placementScoreRoutes");
+const ratingRoutes = require("./routes/ratingRoutes");
 const app = express();
 
 app.use(cors());
@@ -18,6 +19,7 @@ app.use("/api/weak-topic", weakTopicRoutes);
 app.use("/api/strong-topic", strongTopicRoutes);
 app.use("/api/placement-score", placementScoreRoutes);
 app.use("/api/recommendation",recommendationRoutes);
+app.use("/api/rating-history",ratingRoutes);
 app.get("/", (req, res) => {
     res.send("CP Coach Backend Running");
 });

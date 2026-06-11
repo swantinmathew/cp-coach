@@ -346,6 +346,15 @@
     display:flex;
     flex-direction:column;
 }
+.rating-chart-card .card-title{
+    margin-bottom: 30px;
+}
+.chart-subtitle{
+    text-align:center;
+    color:#888;
+    margin-top:-10px;
+    margin-bottom:20px;
+}
 /* ==========================
    PROFILE
 ========================== */
