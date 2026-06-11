@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import API from "../services/api";
 import { FaTrophy } from "react-icons/fa";
 import { FaGlobe } from "react-icons/fa";
@@ -25,10 +25,24 @@ function Dashboard() {
 
     const [recommendations, setRecommendations] = useState([]);
     const [weakestTopic, setWeakestTopic] = useState("");
+    const [error, setError] = useState("");
+    useEffect(() => {
+        const savedHandle =
+            localStorage.getItem(
+                "lastHandle"
+            );
+        if(savedHandle){
+
+            setHandle(
+                savedHandle
+            );
+        }
+    }, []);
 
     const fetchProfile = async () => {
 
         try {
+            setError("");
             setLoading(true);
             const [
                     profileResponse,
@@ -79,14 +93,29 @@ function Dashboard() {
             recommendationResponse.data.recommendations
         );    
 
-
+        localStorage.setItem(
+            "lastHandle",
+            handle
+        );
         }
 
         catch (error) {
 
             console.log(error);
-
-            alert("Error fetching data");
+            setProfile(null);
+            setPlacementScore(null);
+            setWeakTopics([]);
+            setStrongTopics([]);
+            setRecommendations([]);
+            if(error.response?.status === 500)
+                setError(
+                    "Codeforces handle not found"
+            );
+            else{
+                setError(
+                    "Failed to fetch data. Please try again"
+                );
+            }
 
         }
         finally{
@@ -127,16 +156,55 @@ function Dashboard() {
                             e.target.value
                         )
                     }
+                    onKeyDown={(e) => {
+                        if(e.key==="Enter"){
+                            fetchProfile();
+                        }
+                    }
+
+                    }
                 />
 
                 <button
                     onClick={fetchProfile}
-                    disabled={loading}
+                    disabled={loading || !handle.trim()}
                 >
                     {loading ? "Analyzing..." : "Analyze"}
                 </button>
+                </div>
+                {
+                    error &&(
+                        <div className="error-card">
+                            <strong>
+                                Error
+                            </strong>
+                            <p>
+                                {error}
+                            </p>
+                        </div>
+                    )
+                }
+                {
+                    !profile &&
+                    !loading &&
+                    !error &&(
+                        <div className="empty-state">
+                            <FiTarget
+                                className="empty-icon"
+                            />
+                            <h2>
+                                Start Your Analysis
+                            </h2>
+                            <p>
+                                Enter a Codeforces handle
+                                to view profile stats,
+                                placement score and
+                                recommendations 
+                            </p>
+                        </div>
+                    )
+                }
 
-            </div>
             {/* SUMMARY SECTION */}
 
             <div className="summary-grid">
@@ -525,8 +593,8 @@ function Dashboard() {
                                     </div>
                                 </div>
                             )
-                        )
-                        }
+                    )
+            }
         </div>
     );
 }
