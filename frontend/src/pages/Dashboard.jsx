@@ -267,17 +267,25 @@ function Dashboard() {
                                 <FaUser></FaUser>
                                 Profile Overview
                             </h2>
-
-                            <div className="profile-row">
-                                <span>Handle</span>
-                                <strong>
-                                    {profile.handle}
-                                </strong>
+                            <div className="profile-header">
+                                <img
+                                    src={profile.titlePhoto}
+                                    alt={profile.handle}
+                                    className="profile-avatar" 
+                                />
+                                <div>
+                                    <h3 className="profile-handle">
+                                        {profile.handle}
+                                    </h3>
+                                    <p className="profile-rank">
+                                        {profile.rank}
+                                    </p>
+                                </div>    
                             </div>
-
                             <div className="profile-row">
                                 <span>Rating</span>
-                                <strong>
+
+                                <strong className="rating-value">
                                     {profile.rating}
                                 </strong>
                             </div>
@@ -288,14 +296,6 @@ function Dashboard() {
                                     {profile.maxRating}
                                 </strong>
                             </div>
-
-                            <div className="profile-row">
-                                <span>Rank</span>
-                                <strong>
-                                    {profile.rank}
-                                </strong>
-                            </div>
-
                             <div className="profile-row">
                                 <span>Country</span>
                                 <strong>
@@ -313,7 +313,7 @@ function Dashboard() {
                     ):(    
                         placementScore && (
 
-                            <div className="card">
+                            <div className="card placement-card">
 
                                 <h2 className="card-title">
                                     <FiTarget/>
@@ -553,6 +553,11 @@ function Dashboard() {
                                                     <div
                                                         className="problem-card"
                                                         key={index}
+                                                        onClick={()=>
+                                                            window.open(
+                                                                problem.url,"_blank"
+                                                            )
+                                                        }
                                                     >
 
                                                         <div className="problem-top">
@@ -593,8 +598,8 @@ function Dashboard() {
                                     </div>
                                 </div>
                             )
-                    )
-            }
+                        )
+                    }
         </div>
     );
 }

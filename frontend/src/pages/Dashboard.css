@@ -304,6 +304,7 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
     margin-bottom: 25px;
+    align-items: start;
 }
 
 /* ==========================
@@ -341,6 +342,10 @@
 .card-title svg{
     font-size:1.4rem;
 }
+.placement-card{
+    display:flex;
+    flex-direction:column;
+}
 /* ==========================
    PROFILE
 ========================== */
@@ -348,7 +353,7 @@
 .profile-row {
     display: flex;
     justify-content: space-between;
-    padding: 12px 0;
+    padding: 16px 0;
     border-bottom:
         1px solid rgba(255,255,255,0.05);
 }
@@ -359,6 +364,40 @@
 
 .profile-row strong {
     color: white;
+    font-size:1.1rem
+}
+.rating-value{
+    color:#5f6fff;
+    font-size:1.1rem;
+}
+.profile-header{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding-bottom:20px;
+    margin-bottom:25px;
+}
+
+.profile-avatar{
+    width:85px;
+    height:85px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid rgba(95,111,255,0.4);
+    box-shadow:
+        0 0 20px rgba(95,111,255,0.2);
+}
+
+.profile-handle{
+    margin:0;
+    font-size:1.3rem;
+    font-weight:700;
+    color:white;
+}
+.profile-rank{
+    margin-top:5px;
+    color:#aaa;
+    text-transform:capitalize;
 }
 
 /* ==========================
@@ -366,8 +405,8 @@
 ========================== */
 
 .score-circle{
-    width:150px;
-    height:150px;
+    width:120px;
+    height:120px;
     border-radius:50%;
     display:flex;
     justify-content:center;
@@ -382,8 +421,8 @@
         0 0 15px rgba(77,208,225,0.15);
 }
 .score-inner{
-    width:138px;
-    height:138px;
+    width:108px;
+    height:108px;
     background:#080808;
     border-radius:50%;
     display:flex;
@@ -393,7 +432,7 @@
 
 .score-value{
 
-    font-size:2rem;
+    font-size:1.8rem;
     font-weight:800;
     line-height:1;
     color:white;
@@ -409,7 +448,8 @@
     display:flex;
     flex-direction:column;
     align-items:center;
-    gap:15px;
+    gap:12px;
+    justify-content:center;
 }
 
 .score-max{
@@ -420,11 +460,16 @@
 }
 
 .score-badge{
-    padding:8px 18px;
+    padding:10px 20px;
+    display:flex;
+    align-items:center;
+    gap:8px;
     border-radius:999px;
     background:rgba(77,208,225,0.15);
     color:#4dd0e1;
     font-weight:600;
+    min-width:180px;
+    justify-content:center;
     transition:all 0.3s ease;
 }
 .score-badge:hover{
@@ -433,14 +478,15 @@
 .score-details{
     display:flex;
     flex-direction:column;
-    gap:15px;
+    gap:8px;
 }
 
 .metric-card{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:15px 20px;
+    min-height:60px;
+    padding:10px 16px;
     border-radius:14px;
     background:rgba(255,255,255,0.03);
     border:1px solid rgba(255,255,255,0.05);
@@ -464,12 +510,16 @@
 .metric-left{
     display:flex;
     align-items:center;
-    gap:12px;
+    gap:14px;
+    line-height:1;
 }
 
 .metric-left svg{
     color:#4dd0e1;
     font-size:1rem;
+    flex-shrink:0;
+    position:relative;
+    top:-1px;
 }
 /* ==========================
    TOPIC LIST
@@ -537,7 +587,7 @@
     border:
         1px solid rgba(255,255,255,0.05);
     border-radius: 18px;
-    padding:  18px;
+    padding:  16px;
     transition: 0.3s;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -559,7 +609,7 @@
 .problem-top {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .problem-top h3 {
@@ -576,12 +626,13 @@
     color: #f5b942;
     font-weight: 700;
     font-size: 0.85rem;
+    flex-shrink:0;
 }
 .problem-bottom {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 12px;
+    margin-top: 8px;
 }
 
 .problem-tags {
