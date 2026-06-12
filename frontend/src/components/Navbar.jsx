@@ -18,11 +18,6 @@ function Navbar() {
             >
                 Dashboard
             </span>
-
-            <span className="nav-link">
-                Roadmap
-            </span>
-
         </div>
     </nav>
     );

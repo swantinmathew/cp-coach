@@ -8,7 +8,7 @@ function Hero() {
             <div className="hero-left">
 
                 <span className="badge">
-                    🚀 New AI Analysis Available
+                    🚀 Competitive Programming Analytics
                 </span>
 
                 <h1>
@@ -16,9 +16,9 @@ function Hero() {
                 </h1>
 
                 <p>
-                    Analyze your Codeforces profile,
-                    discover weak topics, track progress,
-                    and get personalized recommendations.
+                    Analyze your Codeforces profile, identify weak topics,
+                    track rating progress, and receive personalized
+                    problem recommendations to improve faster.
                 </p>
 
                 <button 

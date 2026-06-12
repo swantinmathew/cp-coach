@@ -31,7 +31,7 @@ function Features() {
                 </div>
 
                 <div className="feature-card">
-                    <h3>💪 Strong Topic Analysis</h3>
+                    <h3>💪 Strong Topic Detection</h3>
                     <p>
                         Identify your strongest
                         competitive programming skills.

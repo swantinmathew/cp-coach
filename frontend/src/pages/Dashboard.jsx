@@ -12,6 +12,7 @@ import { MdOutlineWarningAmber } from "react-icons/md";
 import { GiBiceps } from "react-icons/gi";
 import { BsLightbulb } from "react-icons/bs";
 import {LineChart,Line,XAxis,YAxis, Tooltip,ResponsiveContainer,CartesianGrid} from "recharts";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 import "./Dashboard.css";
 
@@ -142,7 +143,46 @@ function Dashboard() {
         }
 
     };
+    const ratingChanges = ratingHistory.map(
+    contest => contest.newRating - contest.oldRating
+    );
 
+    const bestGain =
+        ratingChanges.length > 0
+            ? Math.max(...ratingChanges)
+            : 0;
+
+    const worstLoss =
+        ratingChanges.length > 0
+            ? Math.min(...ratingChanges)
+            : 0;
+
+    const averageChange =
+        ratingChanges.length > 0
+            ? Math.round(
+                ratingChanges.reduce(
+                    (sum, value) => sum + value,
+                    0
+                ) / ratingChanges.length
+            )
+            : 0;
+            const strongestTopic =
+            strongTopics.length > 0
+                ? strongTopics[0].topic
+                : "N/A";
+
+        const weakTopic =
+            weakTopics.length > 0
+                ? weakTopics[0].topic
+                : "N/A";
+
+        const trend =
+            ratingHistory.length >= 5
+                ? ratingHistory[ratingHistory.length - 1].newRating >
+                ratingHistory[ratingHistory.length - 5].newRating
+                    ? "Improving"
+                    : "Declining"
+                : "Not Enough Data";        
     return (
 
         <div className="dashboard">
@@ -242,28 +282,28 @@ function Dashboard() {
                                 <div className="summary-card">
                                     <FaTrophy className="summary-icon"/>
                                     <p>Contest Rating</p>
-                                    <h2>{profile.rating}</h2>
+                                    <h2>{profile.rating||"N/A"}</h2>
                                     <span>
-                                        Max: {profile.maxRating}
+                                        Max: {profile.maxRating||"N/A"}
                                     </span>
                                 </div>
 
                                 <div className="summary-card">
                                     <FaGlobe className="summary-icon"/>
                                     <p>Global Rank</p>
-                                    <h2>{profile.rank}</h2>
+                                    <h2>{profile.rank || "N/A"}</h2>
                                 </div>
 
                                 <div className="summary-card">
                                     <FaFlag className="summary-icon"/>
                                     <p>Country</p>
-                                    <h2>{profile.country}</h2>
+                                    <h2>{profile.country || "N/A"}</h2>
                                 </div>
 
                                 <div className="summary-card">
                                     <FaStar className="summary-icon"/>
                                     <p>Contribution</p>
-                                    <h2>{profile.contribution}</h2>
+                                    <h2>{profile.contribution||"N/A"}</h2>
                                 </div>
                             </>
                         )
@@ -432,6 +472,7 @@ function Dashboard() {
                             </div>
 
                         </div>
+
                         <div
                             style={{
                                 width:"100%",
@@ -506,6 +547,103 @@ function Dashboard() {
 
                 )
             }
+                        {
+                            ratingHistory.length > 0 && (
+
+                                <div className="card contest-performance-card">
+
+                                    <h2 className="card-title">
+                                        Contest Performance
+                                    </h2>
+
+                                    <div className="performance-grid">
+
+                                        <div className="performance-item">
+                                            <span>Best Gain</span>
+                                            <strong className="positive">
+                                                +{bestGain}
+                                            </strong>
+                                        </div>
+
+                                        <div className="performance-item">
+                                            <span>Worst Loss</span>
+                                            <strong className="negative">
+                                                {worstLoss}
+                                            </strong>
+                                        </div>
+
+                                        <div className="performance-item">
+                                            <span>Average Change</span>
+                                            <strong
+                                                className={
+                                                    averageChange>=0
+                                                        ? "positive"
+                                                        : "negative"
+                                                } 
+                                            >
+                                                {averageChange > 0 ? "+" : ""}
+                                                {averageChange}
+                                            </strong>
+                                        </div>
+
+                                        <div className="performance-item">
+                                            <span>Total Contests</span>
+                                            <strong>
+                                                {ratingHistory.length}
+                                            </strong>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            )
+                        }
+                        {
+                profile && (
+
+                    <div className="card insights-card">
+
+                        <h2 className="card-title">
+                            Insights
+                        </h2>
+
+                        <div className="insight-item">
+                            💪 Strongest Topic:
+                            <strong>
+                                {" "}
+                                {strongestTopic}
+                            </strong>
+                        </div>
+
+                        <div className="insight-item">
+                            ⚠️ Weakest Topic:
+                            <strong>
+                                {" "}
+                                {weakTopic}
+                            </strong>
+                        </div>
+
+                        <div className="insight-item">
+                            📈 Rating Trend:
+                            <strong>
+                                {" "}
+                                {trend}
+                            </strong>
+                        </div>
+
+                        <div className="insight-item">
+                            🎯 Focus Area:
+                            <strong>
+                                {" "}
+                                {weakTopic} Practice
+                            </strong>
+                        </div>
+
+                    </div>
+
+                )
+            }                        
             {/* SECOND GRID */}
 
             <div className="stats-grid">
@@ -723,6 +861,47 @@ function Dashboard() {
                             )
                         )
                     }
+                    <footer className="footer">
+
+                        <div className="footer-content">
+
+                            <h3>CP Coach v1.0</h3>
+
+                            <p>
+                                Analyze your Codeforces profile, discover weak topics
+                                and improve your competitive programming journey.
+                            </p>
+
+                            <div className="footer-tech">
+
+                                <span>React</span>
+                                <span>Node.js</span>
+                                <span>Express</span>
+                                <span>Codeforces API</span>
+
+                            </div>
+                            <div className="footer-links">
+
+                                <a
+                                    href="https://github.com/swantinmathew"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    <FaGithub />
+                                </a>
+
+                                <a
+                                    href="https://linkedin.com/in/swantinmathew"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    <FaLinkedin />
+                                </a>
+
+                            </div>
+                        </div>
+
+                    </footer>
         </div>
     );
 }
