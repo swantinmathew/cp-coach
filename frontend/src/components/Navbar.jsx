@@ -1,26 +1,9 @@
-import { useNavigate } from "react-router-dom";
-function Navbar() {
-    const navigate = useNavigate();
-    return (
-    <nav>
+import "./Navbar.css";
+function Navbar(){
+    return(
+        <nav>
 
-        <h2>CP Coach</h2>
-
-        <div className="nav-links">
-
-            <span className="nav-link">
-                Features
-            </span>
-
-            <span 
-            className="nav-link"
-            onClick={()=> navigate("/dashboard")}
-            >
-                Dashboard
-            </span>
-        </div>
-    </nav>
+        </nav>
     );
 }
-
 export default Navbar;

@@ -1,15 +1,14 @@
 import Navbar from "../components/Navbar";
-import Hero from "../components/Hero";
-import Features from "../components/Features";
+import HeroSection from "../components/HeroSection";
+import FeaturesSection from "../components/FeaturesSection";
 import Footer from "../components/Footer";
-
 function LandingPage()
 {
     return (
         <>
         <Navbar/>
-        <Hero/>
-        <Features/>
+        <HeroSection/>
+        <FeaturesSection/>
         <Footer/>
         </>
     );

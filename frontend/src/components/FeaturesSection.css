@@ -1,0 +1,55 @@
+.features-section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.features-title {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+}
+
+.features-subtitle {
+    color: #999;
+    max-width: 650px;
+    margin: 0 auto 50px auto;
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+/* GRID */
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 320px);
+    gap: 30px;
+    justify-content: center;
+}
+
+/* CARD */
+
+.feature-card {
+    background: rgba(17,17,17,0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid #222;
+    border-radius: 20px;
+    padding: 35px;
+    min-height: 220px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    border-color: #6674ff;
+    box-shadow: 0 10px 25px rgba(102,116,255,0.15);
+}
+
+.feature-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.feature-card p {
+    color: #999;
+    line-height: 1.8;
+}

@@ -1,8 +1,9 @@
+import "./Footer.css";
 function Footer() {
     return (
-        <footer>
-            © 2026 CP Coach
-        </footer>
+        <div className="footer">
+            Footer
+        </div>
     );
 }
 
