@@ -1,4 +1,5 @@
 import "./Navbar.css";
+import { useNavigate } from "react-router-dom";
 function Navbar(){
     return(
         <nav className="navbar">
@@ -13,7 +14,7 @@ function Navbar(){
             </ul>
             <div className="nav-actions">
                 <button className="signin-btn">Sign in</button>
-                <button className="start-btn">Get Started</button>
+                <button className="start-btn" onClick={()=> navigate("/dashboard")}>Get Started</button>
             </div>
         </nav>
     );

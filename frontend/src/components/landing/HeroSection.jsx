@@ -1,5 +1,5 @@
 import "./HeroSection.css";
-import heroImage from "../assets/hero-image.jpg";
+import heroImage from "../../assets/hero-image.jpg";
 import DashboardPreview from "./DashboardPreview";
 function HeroSection(){
     return(
