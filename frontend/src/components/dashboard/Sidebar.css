@@ -1,0 +1,76 @@
+.sidebar{
+    width:260px;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    background:white;
+    border-right:1px solid #e5e7eb;
+    padding:24px 16px;
+    box-sizing:border-box;
+}
+.sidebar-logo{
+    margin-bottom:40px;
+}
+.sidebar-logo h2{
+    margin:0;
+    font-size:32px;
+    color:#111827;
+}
+.sidebar-menu{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+.menu-item{
+    padding:14px 16px;
+    border-radius:12px;
+    cursor:pointer;
+    color:#4b5563;
+    font-weight:500;
+    transition:0.3s;
+}
+.menu-item:hover{
+    background:#f3f4f6;
+}
+.analyze-card{
+    margin-top:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px;
+    border:1px solid #e5e7eb;
+    border-radius:16px;
+    background:white;
+}
+.analyze-card h4{
+    margin:0;
+    font-size:18px;
+    font-weight:600;
+}
+.arrow-btn{
+    width:42px;
+    height:42px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:0;
+    border:none;
+    border-radius:12px;
+    background:#f8f9f7;
+    font-size:22px;
+    cursor:pointer;
+}
+.user-card{
+    margin-top:20px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:16px;
+    border:1px solid #e5e7eb;
+    border-radius:16px;
+}
+.user-info h4{
+    margin:0;
+    font-size:15px;
+    color:#111827;
+}

@@ -1,3 +1,4 @@
+import "./AnalyticsSection.css";
 function AnalyticsSection() {
     return (
         <div>

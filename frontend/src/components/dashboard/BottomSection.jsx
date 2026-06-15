@@ -1,3 +1,4 @@
+import "./BottomSection.css";
 function BottomSection() {
     return (
         <div>
