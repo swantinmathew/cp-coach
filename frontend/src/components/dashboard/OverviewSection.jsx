@@ -2,33 +2,33 @@ import "./OverviewSection.css";
 function OverviewSection({ profile }) {
     if (!profile) return null;
     return (
-        <div className="overview-section">
-            <div className="welcome-card">
+        <div className="overview-banner">
+            <div className="welcome-content">
                 <h2>
-                    Welcome back
-                    {profile.handle}
+                    Welcome back,
+                    <br/>
+                    <span>{ profile.handle }</span>
                 </h2>
                 <p>
-                    Here's your latest
-                    Codeforces performance.
+                    Keep pushing your limits and
+                    become better every day.
                 </p>
             </div>
-            <div className="stats-row">
-                <div className="stat-card">
-                    <h3>
-                        Current Rating
-                        <p>{profile.rating}</p>
-                    </h3>
-                </div>
-                <div className="stat-card">
-                    <h3>
-                        Max Rating
-                        <p>{profile.maxRating}</p>
-                    </h3>
-                </div>
-                <div className="stat-card">
-                    <h3>Rank</h3>
+            <div className="overview-stats">
+                <div className="overview-card">
+                    <h4>Current Rating</h4>
+                    <h3>{profile.rating}</h3>
                     <p>{profile.rank}</p>
+                </div>
+                <div className="overview-card">
+                    <h4>Max Rating</h4>
+                    <h3>{profile.maxRating}</h3>
+                    <p>{profile.maxRank}</p>    
+                </div>
+                <div className="overview-card">
+                    <h4>Contribution</h4>
+                    <h3>{profile.contribution}</h3>
+                    <p>Community Score</p>
                 </div>
             </div>
         </div>
