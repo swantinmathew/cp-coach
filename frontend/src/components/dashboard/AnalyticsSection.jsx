@@ -39,7 +39,11 @@ function AnalyticsSection({ratingHistory}) {
 
                     <div className="contest-stat">
                         <span>Average Change</span>
-                        <h2>{averageChange}</h2>
+                        <h2>
+                            {averageChange > 0
+                                ? `+${averageChange}`
+                                : averageChange}
+                        </h2>
                     </div>
 
                 </div>

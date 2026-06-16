@@ -1,0 +1,103 @@
+.bottom-section{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:24px;
+}
+.topic-analysis-card{
+    background:white;
+    border-radius:24px;
+    padding:24px;
+    border:1px solid #e5e7eb;
+    box-shadow:0 4px 12px rgba(0,0,0,0.04);
+}
+.topics-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+}
+
+.topic-card,
+.recommendation-card{
+    background:white;
+    border-radius:24px;
+    padding:24px;
+    border:1px solid #e5e7eb;
+    box-shadow:0 4px 12px rgba(0,0,0,0.04);
+}
+
+/* Topic Analysis */
+
+.topic-item{
+    margin-top:18px;
+}
+
+.topic-item span:first-child{
+    display:block;
+    margin-bottom:8px;
+    text-transform:capitalize;
+    font-size:14px;
+    color:#374151;
+}
+
+.progress-wrapper{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.progress-track{
+    flex:1;
+    height:8px;
+    background:#ececec;
+    border-radius:999px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    height:100%;
+    border-radius:999px;
+}
+
+.progress-fill.weak{
+    background:#ef4444;
+}
+
+.progress-fill.strong{
+    background:#66bb44;
+}
+
+.weak-title{
+    color:#ef4444;
+    margin-bottom:16px;
+}
+
+.strong-title{
+    color:#66bb44;
+    margin-bottom:16px;
+}
+
+/* Recommendations */
+
+.problem-card{
+    padding:16px;
+    border-radius:16px;
+    background:#f8fafc;
+    margin-top:12px;
+    border:1px solid #eef2f7;
+    transition:0.2s;
+}
+
+.problem-card:hover{
+    transform:translateY(-2px);
+}
+
+.problem-card h4{
+    margin-bottom:6px;
+    color:#111827;
+}
+
+.problem-card p{
+    color:#6b7280;
+    font-size:14px;
+    margin:4px 0;
+}

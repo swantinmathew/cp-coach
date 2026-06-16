@@ -16,6 +16,9 @@ function Dashboard() {
     const [error, setError] = useState("");
     const [ratingHistory, setRatingHistory] = useState([]);
     const [contestHistory, setContestHistory] = useState([]);
+    const [weakTopics, setWeakTopics] = useState([]);
+    const [strongTopics, setStrongTopics] = useState([]);
+    const [recommendations, setRecommendations] = useState([]); 
         const fetchProfile = async () => {
             try {
 
@@ -27,6 +30,12 @@ function Dashboard() {
                     await API.get(`/rating-history/${handle}`);
                 const contestResponse =
                     await API.get(`/contest/${handle}`);    
+                const weakResponse =
+                    await API.get(`/weak-topic/${handle}`);
+                const strongResponse =
+                    await API.get(`/strong-topic/${handle}`);
+                const recommendationResponse =
+                    await API.get(`/recommendation/${handle}`);    
                 if (profileresponse.data.result) {
                     setProfile(
                         profileresponse.data.result[0]
@@ -42,6 +51,15 @@ function Dashboard() {
                 );
                 setContestHistory(
                     contestResponse.data
+                );
+                setWeakTopics(
+                    weakResponse.data
+                );
+                setStrongTopics(
+                    strongResponse.data
+                );
+                setRecommendations(
+                    recommendationResponse.data
                 );
 
             } catch (error) {
@@ -108,7 +126,9 @@ function Dashboard() {
                                     contestHistory={contestHistory}
                                 />
                                 <BottomSection
-                                    profile={profile}
+                                    weakTopics={weakTopics}
+                                    strongTopics={strongTopics}
+                                    recommendations={recommendations}
                                 />
                             </main>
                         </div>
