@@ -8,4 +8,51 @@
     flex:1;
     padding:32px;
     overflow-y:auto;
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+}
+.welcome-screen{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+    background:#f8fafc;
+}
+
+.welcome-screen h1{
+    font-size:48px;
+    font-weight:700;
+    color:#111827;
+}
+
+.welcome-screen p{
+    max-width:500px;
+    text-align:center;
+    color:#6b7280;
+    font-size:18px;
+}
+
+.welcome-search{
+    display:flex;
+    gap:12px;
+}
+
+.welcome-search input{
+    width:350px;
+    padding:16px;
+    border:1px solid #d1d5db;
+    border-radius:12px;
+    font-size:16px;
+}
+
+.welcome-search button{
+    padding:16px 24px;
+    background:#2B7B37;
+    color:white;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
 }
