@@ -3,6 +3,8 @@ import DashboardHeader from "../components/dashboard/DashboardHeader";
 import OverviewSection from "../components/dashboard/OverviewSection";
 import AnalyticsSection from "../components/dashboard/AnalyticsSection";
 import BottomSection from "../components/dashboard/BottomSection";
+import RatingChart from "../components/dashboard/RatingChart";
+import ContestPerformanceChart from "../components/dashboard/ContestPerformanceChart";
 import "./Dashboard.css";
 import { useState } from "react";
 import API from "../services/api";
@@ -12,21 +14,35 @@ function Dashboard() {
     const [profile, setProfile] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
+    const [ratingHistory, setRatingHistory] = useState([]);
+    const [contestHistory, setContestHistory] = useState([]);
         const fetchProfile = async () => {
             try {
 
                 setLoading(true);
-                const response =
+                setError("");
+                const profileresponse =
                     await API.get(`/profile/${handle}`);
-                if (response.data.result) {
+                const ratingResponse =
+                    await API.get(`/rating-history/${handle}`);
+                const contestResponse =
+                    await API.get(`/contest/${handle}`);    
+                if (profileresponse.data.result) {
                     setProfile(
-                        response.data.result[0]
+                        profileresponse.data.result[0]
                     );
-                } else {
+                } 
+                else {
                     setProfile(
-                        response.data
+                        profileresponse.data
                     );
                 }
+                setRatingHistory(
+                    ratingResponse.data
+                );
+                setContestHistory(
+                    contestResponse.data
+                );
 
             } catch (error) {
                 console.log(error);
@@ -88,7 +104,8 @@ function Dashboard() {
                                     profile={profile}
                                 />
                                 <AnalyticsSection
-                                    profile={profile}
+                                    ratingHistory={ratingHistory}
+                                    contestHistory={contestHistory}
                                 />
                                 <BottomSection
                                     profile={profile}
