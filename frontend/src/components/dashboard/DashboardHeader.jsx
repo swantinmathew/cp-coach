@@ -3,11 +3,21 @@ function DashboardHeader({
     handle,
     setHandle,
     fetchProfile,
-    loading
+    loading,
+    menuOpen,
+    setMenuOpen
 }) {
     return (
         <div className="dashboard-header">
             <div className="dashboard-title">
+                <button 
+                    className="menu-btn"
+                    onClick={()=>
+                        setMenuOpen(!menuOpen)
+                    }
+                >
+                    ☰
+                </button>
                 <h1>Dashboard</h1>
                 <p>
                     Track your progress, identify weaknesses,

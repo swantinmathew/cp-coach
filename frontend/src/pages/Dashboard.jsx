@@ -5,6 +5,7 @@ import AnalyticsSection from "../components/dashboard/AnalyticsSection";
 import BottomSection from "../components/dashboard/BottomSection";
 import RatingChart from "../components/dashboard/RatingChart";
 import ContestPerformanceChart from "../components/dashboard/ContestPerformanceChart";
+
 import "./Dashboard.css";
 import { useState } from "react";
 import API from "../services/api";
@@ -19,6 +20,7 @@ function Dashboard() {
     const [weakTopics, setWeakTopics] = useState([]);
     const [strongTopics, setStrongTopics] = useState([]);
     const [recommendations, setRecommendations] = useState([]); 
+    const [menuOpen, setMenuOpen] = useState(false);
         const fetchProfile = async () => {
             try {
 
@@ -110,13 +112,20 @@ function Dashboard() {
                         </div>
                     ) : (
                         <div className="dashboard-layout">
-                            <Sidebar />
+                            <Sidebar 
+                                menuOpen={menuOpen}
+                                setMenuOpen = {setMenuOpen}
+                            />
                             <main className="dashboard-main">
                                 <DashboardHeader
+                                    menuOpen={menuOpen}
+                                    setMenuOpen={setMenuOpen}
                                     handle={handle}
                                     setHandle={setHandle}
                                     fetchProfile={fetchProfile}
                                     loading={loading}
+                              z      menuOpen={menuOpen}
+                                    setMenuOpen={setMenuOpen}
                                 />
                                 <OverviewSection
                                     profile={profile}

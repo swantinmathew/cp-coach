@@ -54,3 +54,17 @@
     opacity:0.6;
     cursor:not-allowed;
 }
+.menu-btn{
+    display:none
+}
+@media(max-width:768px){
+
+    .menu-btn{
+        display:block;
+        font-size:24px;
+        border:none;
+        background:none;
+        cursor:pointer;
+    }
+
+}

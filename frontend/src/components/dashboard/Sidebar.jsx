@@ -1,7 +1,14 @@
 import "./Sidebar.css";
-function Sidebar() {
+function Sidebar({
+    menuOpen,
+    setMenuOpen
+}) {
     return (
-        <div className="sidebar">
+        <div className={
+            menuOpen
+                ? "siderbar open"
+                : "sidebar"
+        }>
             <div className="sidebar-logo">
                 <h2>CP Coach</h2>
             </div>
