@@ -1,12 +1,18 @@
 .dashboard-header{
     display:flex;
     justify-content:space-between;
-    align-items:center;
+    align-items:flex-start;
+    gap:24px;
+    flex-wrap:wrap;
     margin-bottom:24px;
 }
 
 .dashboard-title h1{
-    font-size:42px;
+    font-size:clamp(
+        2.5rem,
+        5vw,
+        4rem
+    );
     font-weight:700;
     color:#111827;
     margin-bottom:8px;
@@ -19,11 +25,16 @@
 
 .search-box{
     display:flex;
+    flex-wrap:wrap;
     gap:12px;
+    flex:1;
+    justify-content:flex-end;
 }
 
 .search-box input{
-    width:280px;
+    flex:1;
+    min-width:220px;
+    max-width:400px;
     padding:14px 16px;
     border:1px solid #d1d5db;
     border-radius:12px;
@@ -44,6 +55,7 @@
     font-weight:600;
     cursor:pointer;
     transition:0.3s;
+    white-space:nowrap;
 }
 
 .search-box button:hover{
@@ -57,7 +69,17 @@
 .menu-btn{
     display:none
 }
-@media(max-width:768px){
+@media (max-width:768px){
+
+    .dashboard-header{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .search-box{
+        width:100%;
+        justify-content:flex-start;
+    }
 
     .menu-btn{
         display:block;

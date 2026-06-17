@@ -112,6 +112,14 @@ function Dashboard() {
                         </div>
                     ) : (
                         <div className="dashboard-layout">
+                              {menuOpen && (
+                                <div
+                                    className="sidebar-overlay"
+                                    onClick={() =>
+                                        setMenuOpen(false)
+                                    }
+                                />
+                            )}
                             <Sidebar 
                                 menuOpen={menuOpen}
                                 setMenuOpen = {setMenuOpen}

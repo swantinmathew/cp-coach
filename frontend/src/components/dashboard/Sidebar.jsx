@@ -6,7 +6,7 @@ function Sidebar({
     return (
         <div className={
             menuOpen
-                ? "siderbar open"
+                ? "sidebar open"
                 : "sidebar"
         }>
             <div className="sidebar-logo">

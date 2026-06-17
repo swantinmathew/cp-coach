@@ -6,7 +6,8 @@
 
 .dashboard-main{
     flex:1;
-    padding:32px;
+    width:100%;
+    padding:clamp(16px,3vw,32px);
     overflow-y:auto;
     display:flex;
     flex-direction:column;
@@ -23,25 +24,33 @@
 }
 
 .welcome-screen h1{
-    font-size:48px;
+    font-size:clamp(
+        2.5rem,
+        6vw,
+        4rem
+    );
     font-weight:700;
     color:#111827;
 }
 
 .welcome-screen p{
-    max-width:500px;
+    max-width:40rem;
+    width:min(90%,40rem);
     text-align:center;
     color:#6b7280;
     font-size:18px;
 }
-
 .welcome-search{
     display:flex;
+    flex-wrap:wrap;
     gap:12px;
+    width:min(100%,600px);
 }
 
 .welcome-search input{
-    width:350px;
+    flex:1;
+    min-width:250px;
+
     padding:16px;
     border:1px solid #d1d5db;
     border-radius:12px;
@@ -55,4 +64,10 @@
     border:none;
     border-radius:12px;
     cursor:pointer;
+}
+.sidebar-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.4);
+    z-index:999;
 }
