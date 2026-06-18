@@ -21,6 +21,7 @@ function Dashboard() {
     const [strongTopics, setStrongTopics] = useState([]);
     const [recommendations, setRecommendations] = useState([]); 
     const [menuOpen, setMenuOpen] = useState(false);
+    const [placementScore, setPlacementScore] = useState(null);
         const fetchProfile = async () => {
             try {
 
@@ -37,7 +38,9 @@ function Dashboard() {
                 const strongResponse =
                     await API.get(`/strong-topic/${handle}`);
                 const recommendationResponse =
-                    await API.get(`/recommendation/${handle}`);    
+                    await API.get(`/recommendation/${handle}`); 
+                const placementResponse = 
+                    await API.get(`/placement-score/${handle}`);       
                 if (profileresponse.data.result) {
                     setProfile(
                         profileresponse.data.result[0]
@@ -63,7 +66,9 @@ function Dashboard() {
                 setRecommendations(
                     recommendationResponse.data
                 );
-
+                setPlacementScore(
+                    placementResponse.data
+                );
             } catch (error) {
                 console.log(error);
                 setError("Failed to fetch profile");
@@ -137,6 +142,7 @@ function Dashboard() {
                                 />
                                 <OverviewSection
                                     profile={profile}
+                                    placementScore={placementScore}
                                 />
                                 <AnalyticsSection
                                     ratingHistory={ratingHistory}

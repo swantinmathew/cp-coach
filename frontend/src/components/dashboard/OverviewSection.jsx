@@ -1,5 +1,8 @@
 import "./OverviewSection.css";
-function OverviewSection({ profile }) {
+function OverviewSection({ 
+    profile,
+    placementScore
+}) {
     if (!profile) return null;
     return (
         <div className="overview-banner">
@@ -29,6 +32,11 @@ function OverviewSection({ profile }) {
                     <h4>Contribution</h4>
                     <h3>{profile.contribution}</h3>
                     <p>Community Score</p>
+                </div>
+                <div className="overview-card">
+                    <h4>Placemet Score</h4>
+                    <h3>{placementScore?.score}</h3>
+                    <p>{placementScore?.level}</p>
                 </div>
             </div>
         </div>
