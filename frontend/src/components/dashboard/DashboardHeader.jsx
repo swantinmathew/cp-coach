@@ -44,7 +44,7 @@ function DashboardHeader({
                     onClick={fetchProfile}
                     disabled={loading || !handle.trim()}
                 >
-                    {loading ? "Analyzing..." : "Analyze"}
+                    {loading ? "Fetching Profile..." : "Analyze"}
                 </button>
             </div>
         </div>

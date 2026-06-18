@@ -2,14 +2,16 @@ import "./AnalyticsSection.css";
 import RatingChart from "./RatingChart";
 import ContestPerformanceChart from "./ContestPerformanceChart";
 
-function AnalyticsSection({ratingHistory}) {
-    const changes = ratingHistory.map(
+function AnalyticsSection(
+    {ratingHistory,profile}
+) {
+    const changes = ratingHistory?.map(
         contest => contest.newRating - contest.oldRating
-    );
-    const bestGain = Math.max(...changes);
-    const worstLoss = Math.min(...changes);
-    const averageChange = Math.round(changes.reduce((sum,val) => sum + val,0)/changes.length
-    );
+    ) || [];
+    const bestGain = changes.length ? Math.max(...changes) : 0;
+    const worstLoss = changes.length ? Math.min(...changes) : 0;
+    const averageChange = changes.length ? Math.round(changes.reduce((sum,val) => sum + val,0)/changes.length
+    ) : 0;
     return (
         <div className="analytics-section">
             <div className="chart-card">

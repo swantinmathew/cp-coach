@@ -36,7 +36,19 @@
     border:1px solid #e5e7eb;
     box-shadow:0 4px 12px rgba(0,0,0,0.04);
 }
-
+.solve-btn{
+    margin-top:12px;
+    background:#2B7B37;
+    color:white;
+    border:none;
+    border-radius:10px;
+    padding:10px 16px;
+    cursor:pointer;
+    font-weight:600;
+}
+.solve-btn:hover{
+    background:#24672d;
+}
 /* Topic Analysis */
 
 .topic-item{

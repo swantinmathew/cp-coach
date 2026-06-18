@@ -6,6 +6,8 @@ import {
 
 import LandingPage from "./pages/LandingPage";
 import Dashboard from "./pages/Dashboard";
+import Compare from "./pages/Compare";
+
 
 function App() {
 
@@ -24,6 +26,10 @@ function App() {
                     path="/dashboard"
                     element={<Dashboard />}
                 />
+                <Route
+                    path="/compare"
+                    element={<Compare />}
+                />  
 
             </Routes>
 

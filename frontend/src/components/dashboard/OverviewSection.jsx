@@ -29,14 +29,14 @@ function OverviewSection({
                     <p>{profile.maxRank}</p>    
                 </div>
                 <div className="overview-card">
-                    <h4>Contribution</h4>
-                    <h3>{profile.contribution}</h3>
-                    <p>Community Score</p>
-                </div>
-                <div className="overview-card">
                     <h4>Placemet Score</h4>
                     <h3>{placementScore?.score}</h3>
                     <p>{placementScore?.level}</p>
+                </div>
+                <div className="overview-card">
+                    <h4>Problem Solved</h4>
+                    <h3>{placementScore?.problemsSolved}</h3>
+                    <p>Across all contests</p>
                 </div>
             </div>
         </div>

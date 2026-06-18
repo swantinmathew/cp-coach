@@ -106,7 +106,7 @@ function BottomSection({
                         </h4>
 
                         <p>
-                            {problem.topic}
+                            Topic: {problem.topic}
                         </p>
 
                         <p>
@@ -114,6 +114,16 @@ function BottomSection({
                             {" "}
                             {problem.difficulty}
                         </p>
+                        <button
+                            className="solve-btn"
+                            onClick={()=>
+                                window.open(
+                                    problem.link,"_blank"
+                                )
+                            }
+                        >
+                            Solve Problem
+                        </button>
 
                     </div>
 

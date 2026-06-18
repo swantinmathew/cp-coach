@@ -107,7 +107,7 @@ function Dashboard() {
                                     disabled={loading || !handle.trim()}
                                 >
                                     {loading
-                                        ? "Analyzing..."
+                                        ? "Fetching Profile..."
                                         : "Analyze Profile"}
                                 </button>
                             </div>
@@ -128,6 +128,8 @@ function Dashboard() {
                             <Sidebar 
                                 menuOpen={menuOpen}
                                 setMenuOpen = {setMenuOpen}
+                                currentProfile={profile}
+
                             />
                             <main className="dashboard-main">
                                 <DashboardHeader
@@ -137,7 +139,7 @@ function Dashboard() {
                                     setHandle={setHandle}
                                     fetchProfile={fetchProfile}
                                     loading={loading}
-                              z      menuOpen={menuOpen}
+                                    menuOpen={menuOpen}
                                     setMenuOpen={setMenuOpen}
                                 />
                                 <OverviewSection
@@ -145,6 +147,7 @@ function Dashboard() {
                                     placementScore={placementScore}
                                 />
                                 <AnalyticsSection
+                                    profile={profile}
                                     ratingHistory={ratingHistory}
                                     contestHistory={contestHistory}
                                 />

@@ -1,8 +1,11 @@
 import "./Sidebar.css";
+import { Link } from "react-router-dom";
 function Sidebar({
     menuOpen,
-    setMenuOpen
+    setMenuOpen,
+    currentProfile
 }) {
+    console.log("Sidebar Profile:", currentProfile);
     return (
         <div className={
             menuOpen
@@ -31,9 +34,15 @@ function Sidebar({
                 <div className="menu-item">
                     Roadmap
                 </div>
-                <div className="menu-item">
+                <Link
+                    to="/compare"
+                    state={{
+                        currentProfile
+                    }}
+                    className="menu-item"
+                >
                     Compare
-                </div>
+                </Link>
                 <div className="menu-item">
                     Settings
                 </div>
