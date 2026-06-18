@@ -6,9 +6,16 @@ const fetchWeakTopics = async (req, res) => {
         const handle = req.params.handle;
 
         const data = await getSubmissions(handle);
+        console.log(data);
+        console.log(data.status);
+        console.log(Array.isArray(data.result));
 
-        const submissions = data.result;
-
+        const submissions = data?.result;
+        if (!Array.isArray(submissions)) {
+            return res.status(500).json({
+                error: "Codeforces API did not return submissions"
+            });
+        }
         const topicCount = {};
 
         // Count tags from all submissions
@@ -75,7 +82,7 @@ const fetchWeakTopics = async (req, res) => {
             weakTopics
         }); 
     } catch (error) {
-
+        console.error(error);
         res.status(500).json({
             error: error.message
         });

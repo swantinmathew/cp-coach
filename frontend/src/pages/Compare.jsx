@@ -37,7 +37,7 @@ function Compare() {
     };
     return (
 
-        <div>
+        <div className="comapare-page">
 
             <h1>
                 Compare Profiles
@@ -69,51 +69,130 @@ function Compare() {
             
             {compareProfile && currentProfile && (
 
-            <div className="comparison-card">
+                
+                <div className="battle-table">
 
-                <h2>
-                    {currentProfile?.handle}
-                    {" vs "}
-                    {compareProfile.handle}
-                </h2>
+                    <div className="battle-header">
 
-                <div className="comparison-row">
-                    <span>Rating</span>
+                        <h3>
+                            {currentProfile.handle}
+                        </h3>
 
-                    <strong>
-                        {currentProfile?.rating}
-                    </strong>
+                        <span>VS</span>
 
-                    <strong>
-                        {compareProfile.rating}
-                    </strong>
+                        <h3>
+                            {compareProfile.handle}
+                        </h3>
+
+                    </div>
+
+                    <div className="battle-row">
+
+                        <span
+                            className={
+                                currentProfile.rating >
+                                compareProfile.rating
+                                    ? "winner"
+                                    : ""
+                            }
+                        >
+                            {currentProfile.rating}
+                        </span>
+
+                        <span className="metric">
+                            Rating
+                        </span>
+
+                        <span
+                            className={
+                                compareProfile.rating >
+                                currentProfile.rating
+                                    ? "winner"
+                                    : ""
+                            }
+                        >
+                            {compareProfile.rating}
+                        </span>
+
+                    </div>
+
+                    <div className="battle-row">
+
+                        <span
+                            className={
+                                currentProfile.maxRating >
+                                compareProfile.maxRating
+                                    ? "winner"
+                                    : ""
+                            }
+                        >
+                            {currentProfile.maxRating}
+                        </span>
+
+                        <span className="metric">
+                            Max Rating
+                        </span>
+
+                        <span
+                            className={
+                                compareProfile.maxRating >
+                                currentProfile.maxRating
+                                    ? "winner"
+                                    : ""
+                            }
+                        >
+                            {compareProfile.maxRating}
+                        </span>
+
+                    </div>
+
+                    <div className="battle-row">
+
+                        <span>
+                            {currentProfile.rank}
+                        </span>
+
+                        <span className="metric">
+                            Rank
+                        </span>
+
+                        <span>
+                            {compareProfile.rank}
+                        </span>
+
+                    </div>
+
+                    <div className="battle-row">
+
+                        <span
+                            className={
+                                currentProfile.contribution >
+                                compareProfile.contribution
+                                    ? "winner"
+                                    : ""
+                            }
+                        >
+                            {currentProfile.contribution}
+                        </span>
+
+                        <span className="metric">
+                            Contribution
+                        </span>
+
+                        <span
+                            className={
+                                compareProfile.contribution >
+                                currentProfile.contribution
+                                    ? "winner"
+                                    : ""
+                            }
+                        >
+                            {compareProfile.contribution}
+                        </span>
+
+                    </div>
+
                 </div>
-
-                <div className="comparison-row">
-                    <span>Max Rating</span>
-
-                    <strong>
-                        {currentProfile?.maxRating}
-                    </strong>
-
-                    <strong>
-                        {compareProfile.maxRating}
-                    </strong>
-                </div>
-
-                <div className="comparison-row">
-                    <span>Rank</span>
-
-                    <strong>
-                        {currentProfile?.rank}
-                    </strong>
-
-                    <strong>
-                        {compareProfile.rank}
-                    </strong>
-                </div>
-
-            </div>
 
         )}
         </div>
