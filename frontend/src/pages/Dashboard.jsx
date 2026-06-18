@@ -27,31 +27,34 @@ function Dashboard() {
 
                 setLoading(true);
                 setError("");
-                const [
-                    profileResponse,
-                    ratingResponse,
-                    contestResponse,
-                    weakResponse,
-                    strongResponse,
-                    recommendationResponse,
-                    placementResponse
-                ] = await Promise.all([
-                    API.get(`/profile/${handle}`),
-                    API.get(`/rating-history/${handle}`),
-                    API.get(`/contest/${handle}`),
-                    API.get(`/weak-topic/${handle}`),
-                    API.get(`/strong-topic/${handle}`),
-                    API.get(`/recommendation/${handle}`),
-                    API.get(`/placement-score/${handle}`)
-                ]);     
-                if (profileresponse.data.result) {
+                const profileResponse =
+                    await API.get(`/profile/${handle}`);
+
+                const ratingResponse =
+                    await API.get(`/rating-history/${handle}`);
+
+                const contestResponse =
+                    await API.get(`/contest/${handle}`);
+
+                const weakResponse =
+                    await API.get(`/weak-topic/${handle}`);
+
+                const strongResponse =
+                    await API.get(`/strong-topic/${handle}`);
+
+                const recommendationResponse =
+                    await API.get(`/recommendation/${handle}`);
+
+                const placementResponse =
+                    await API.get(`/placement-score/${handle}`);
+                if (profileResponse.data.result) {
                     setProfile(
-                        profileresponse.data.result[0]
+                        profileResponse.data.result[0]
                     );
                 } 
                 else {
                     setProfile(
-                        profileresponse.data
+                        profileResponse.data
                     );
                 }
                 setRatingHistory(

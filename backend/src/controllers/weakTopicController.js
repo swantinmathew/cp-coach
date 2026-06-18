@@ -2,13 +2,9 @@ const { getSubmissions } = require("../services/topicService");
 
 const fetchWeakTopics = async (req, res) => {
     try {
-        console.time("weak-topic");
         const handle = req.params.handle;
 
         const data = await getSubmissions(handle);
-        console.log(data);
-        console.log(data.status);
-        console.log(Array.isArray(data.result));
 
         const submissions = data?.result;
         if (!Array.isArray(submissions)) {
