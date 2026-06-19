@@ -1,6 +1,58 @@
 .compare-page{
-    padding:32px;
+    max-width:1200px;
+    margin:0 auto;
+    padding:40px;
 }
+
+.compare-hero {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.compare-hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 12px;
+}
+
+.compare-hero p {
+    max-width: 650px;
+    margin: 0 auto 24px;
+    color: #6b7280;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.compare-search {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.compare-search input {
+    width: 320px;
+    padding: 12px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+.compare-search input:focus {
+    border-color: #2B7B37;
+}
+
+.compare-search button {
+    background: #2B7B37;
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
 
 .battle-table{
     margin-top:32px;

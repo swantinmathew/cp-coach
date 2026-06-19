@@ -39,33 +39,41 @@ function Compare() {
 
         <div className="comapare-page">
 
-            <h1>
-                Compare Profiles
-            </h1>
+            <div className="compare-hero">
 
-            <p>
-                Current Profile:
-                {" "}
-                {currentProfile?.handle}
-            </p>
+                <h1>
+                    ⚔️ Compare Profiles
+                </h1>
 
-            <input
-                placeholder="Enter Handle To Compare"
-                value={compareHandle}
-                onChange={(e)=>
-                    setCompareHandle(
-                        e.target.value
-                    )
-                }
-            />
+                <p>
+                    Compare your Codeforces performance
+                    against any competitive programmer
+                    and discover where you stand.
+                </p>
 
-            <button
-                onClick={compareProfiles}
-            >
-                {loading
-                    ? "Comparing..."
-                    : "Compare"}
-            </button>
+                <div className="compare-search">
+
+                    <input
+                        placeholder="Enter Handle To Compare"
+                        value={compareHandle}
+                        onChange={(e) =>
+                            setCompareHandle(
+                                e.target.value
+                            )
+                        }
+                    />
+
+                    <button
+                        onClick={compareProfiles}
+                    >
+                        {loading
+                            ? "Comparing..."
+                            : "Compare"}
+                    </button>
+
+                </div>
+
+            </div>
             
             {compareProfile && currentProfile && (
 
