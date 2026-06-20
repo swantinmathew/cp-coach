@@ -94,59 +94,60 @@ function Compare() {
                 
                 <div className="battle-table">
 
-                    <div className="section-divider">
-                        Detailed Comparison
-                    </div>
                     <div className="battle-header">
 
                         <div className="battle-banner">
 
-                            <div className="fighter">
+                            <div className="fighter-side">
 
-                                <div className="fighter-avatar">
-                                    {currentProfile.handle[0].toUpperCase()}
+                                <h3>{currentProfile.handle}</h3>
+
+                                <div className={`rank ${getRankClass(currentProfile.rank)}`}>
+                                    {currentProfile.rank}
                                 </div>
 
-                                <div>
-                                    <h3>{currentProfile.handle}</h3>
+                                <div className="banner-stat">
+                                    Rating: {currentProfile.rating}
+                                </div>
 
-                                        <p className={`rank ${getRankClass(currentProfile.rank)}`}>
-                                            {currentProfile.rank}
-                                        </p>
-
-                                    <span className="fighter-rating">
-                                        {currentProfile.rating}
-                                    </span>
+                                <div className="banner-stat">
+                                    Max: {currentProfile.maxRating}
                                 </div>
 
                             </div>
 
-                            <div className="battle-vs">
-                                ⚔️
-                            </div>
+                            <div className="battle-center">
 
-                            <div className="fighter">
-
-                                <div className="fighter-avatar">
-                                    {compareProfile.handle[0].toUpperCase()}
+                                <div className="battle-vs">
+                                    ⚔️ VS ⚔️
                                 </div>
 
-                                <div>
-                                    <h3>{compareProfile.handle}</h3>
-                                    <p className={`rank ${getRankClass(compareProfile.rank)}`}>
-                                        {compareProfile.rank}
-                                    </p>
+                            </div>
 
-                                    <span className="fighter-rating">
-                                        {compareProfile.rating}
-                                    </span>
+                            <div className="fighter-side">
+
+                                <h3>{compareProfile.handle}</h3>
+
+                                <div className={`rank ${getRankClass(compareProfile.rank)}`}>
+                                    {compareProfile.rank}
+                                </div>
+
+                                <div className="banner-stat">
+                                    Rating: {compareProfile.rating}
+                                </div>
+
+                                <div className="banner-stat">
+                                    Max: {compareProfile.maxRating}
                                 </div>
 
                             </div>
 
                         </div>
 
-                    </div>    
+                    </div>  
+                    <div className="section-divider">
+                        Detailed Comparison
+                    </div>  
 
                     <div className="battle-row">
 
