@@ -125,6 +125,22 @@ function FeaturesSection(){
 
                     <div className="growth-card large">
 
+                        <div className="path-preview">
+
+                            <div className="path-pill">
+                                Learn DSA
+                            </div>
+
+                            <div className="path-pill">
+                                Placement Prep
+                            </div>
+
+                            <div className="path-pill">
+                                Competitive Coding
+                            </div>
+
+                        </div>
+
                         <h3>
                             Personalized Learning Paths
                         </h3>
@@ -136,9 +152,38 @@ function FeaturesSection(){
                         </p>
 
                     </div>
-
                     <div className="growth-card large">
+                        <div className="roadmap-preview">
 
+                            <div className="roadmap-step">
+                                Arrays
+                            </div>
+
+                            <div className="roadmap-arrow">
+                                →
+                            </div>
+
+                            <div className="roadmap-step">
+                                Strings
+                            </div>
+
+                            <div className="roadmap-arrow">
+                                →
+                            </div>
+
+                            <div className="roadmap-step">
+                                Trees
+                            </div>
+
+                            <div className="roadmap-arrow">
+                                →
+                            </div>
+
+                            <div className="roadmap-step">
+                                Graphs
+                            </div>
+
+                        </div>
                         <h3>
                             Curated Roadmaps & Resources
                         </h3>
@@ -153,6 +198,20 @@ function FeaturesSection(){
 
                     <div className="growth-card">
 
+                        <div className="progress-preview">
+
+                            <div className="bar small"></div>
+
+                            <div className="bar medium"></div>
+
+                            <div className="bar large"></div>
+
+                            <div className="bar medium"></div>
+
+                            <div className="bar xlarge"></div>
+
+                        </div>    
+
                         <h3>
                             Track Progress
                         </h3>
@@ -166,6 +225,25 @@ function FeaturesSection(){
 
                     <div className="growth-card">
 
+                        <div className="analytics-preview">
+
+                            <div className="analytics-stat">
+                                <span>Rating</span>
+                                <strong>1542</strong>
+                            </div>
+
+                            <div className="analytics-stat">
+                                <span>Score</span>
+                                <strong>82</strong>
+                            </div>
+
+                            <div className="analytics-stat">
+                                <span>Weak Topic</span>
+                                <strong>DP</strong>
+                            </div>
+
+                        </div>
+
                         <h3>
                             Profile Analytics
                         </h3>
@@ -178,6 +256,24 @@ function FeaturesSection(){
                     </div>
 
                     <div className="growth-card">
+
+                        <div className="compare-preview">
+
+                            <div className="compare-user">
+                                <strong>tourist</strong>
+                                <p>3486</p>
+                            </div>
+
+                            <span className="vs-text">
+                                VS
+                            </span>
+
+                            <div className="compare-user">
+                                <strong>Benq</strong>
+                                <p>3792</p>
+                            </div>
+
+                        </div>
 
                         <h3>
                             Compare Profiles
