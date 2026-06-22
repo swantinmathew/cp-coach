@@ -7,6 +7,7 @@ import {
 import LandingPage from "./pages/LandingPage";
 import Dashboard from "./pages/Dashboard";
 import Compare from "./pages/Compare";
+import DSARoadmap from "./pages/DSARoadmap";
 
 
 function App() {
@@ -30,6 +31,10 @@ function App() {
                     path="/compare"
                     element={<Compare />}
                 />  
+                <Route
+                    path="/roadmaps/dsa"
+                    element={<DSARoadmap />}
+                />
 
             </Routes>
 

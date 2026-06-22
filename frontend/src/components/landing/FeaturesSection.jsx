@@ -1,4 +1,5 @@
 import "./FeaturesSection.css";
+import { Link } from "react-router-dom";
 function FeaturesSection(){
     return(
         <section className="features-section">
@@ -42,7 +43,12 @@ function FeaturesSection(){
                             Hashing → Trees →
                             Graphs → Dynamic Programming
                         </p>
-
+                        <Link
+                            to="/roadmaps/dsa"
+                            className="journey-link"
+                        >
+                            Explore Roadmap →
+                        </Link>    
                     </div>
 
                 </div>
@@ -51,16 +57,16 @@ function FeaturesSection(){
 
                 <div className="journey-item">
 
-                    <div className="jour`ney-number">
+                    <div className="journey-number">
 
                         02
                         
                     </div>
 
-                    <div className="jouney-content">
+                    <div className="journey-content">
 
                         <h3>
-                            Plaacement Preperation
+                            Placement Preperation
                         </h3>
                         
                         <p>
