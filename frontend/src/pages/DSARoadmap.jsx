@@ -4,52 +4,196 @@ import { useState } from "react";
 function DSARoadmap() {
 
     const roadmapData = {
+
         Arrays: {
+            description:
+                "Learn traversal, prefix sums, two pointers and common array patterns.",
+
             learn: [
                 "Traversal",
                 "Prefix Sum",
                 "Two Pointers"
             ],
+
             resources: [
-                "Striver A2Z",
-                "NeetCode Arrays"
+                { title: "NeetCode Arrays" },
+                { title: "Striver Arrays" }
             ],
+
             problems: [
-                "Two Sum",
-                "Best Time To Buy Stock"
+                {
+                    name: "Two Sum",
+                    difficulty: "Easy"
+                },
+                {
+                    name: "Best Time To Buy Stock",
+                    difficulty: "Easy"
+                }
             ]
         },
 
         Strings: {
-            learn: [
-                "Character Arrays",
-                "Palindrome",
-                "Pattern Matching"
-            ],
+            description:
+                "Master string manipulation, palindrome techniques and pattern matching.",
+
+            learn: ["Basics", "Palindrome", "Pattern Matching"],
+
             resources: [
-                "NeetCode Strings",
-                "GFG Strings"
+                { title: "NeetCode Strings" }
             ],
+
             problems: [
-                "Valid Anagram",
-                "Longest Common Prefix"
+                {
+                    name: "Valid Anagram",
+                    difficulty: "Easy"
+                }
             ]
         },
 
         Hashing: {
-            learn: [
-                "HashMap",
-                "HashSet",
-                "Frequency Count"
-            ],
+            description:
+                "Understand HashMap, HashSet and frequency counting techniques.",
+
+            learn: ["HashMap", "HashSet", "Frequency Count"],
+
             resources: [
-                "Striver Hashing"
+                { title: "Hashing Fundamentals" }
             ],
+
             problems: [
-                "Contains Duplicate",
-                "Two Sum"
+                {
+                    name: "Contains Duplicate",
+                    difficulty: "Easy"
+                }
+            ]
+        },
+
+        "Sliding Window": {
+            description:
+                "Learn fixed and variable window patterns for optimized solutions.",
+
+            learn: ["Fixed Window", "Variable Window"],
+
+            resources: [
+                { title: "Sliding Window Patterns" }
+            ],
+
+            problems: [
+                {
+                    name: "Maximum Average Subarray",
+                    difficulty: "Medium"
+                }
+            ]
+        },
+
+        "Linked Lists": {
+            description:
+                "Master pointers, reversal and fast-slow pointer techniques.",
+
+            learn: ["Traversal", "Reversal", "Fast Slow Pointers"],
+
+            resources: [
+                { title: "Linked List Guide" }
+            ],
+
+            problems: [
+                {
+                    name: "Reverse Linked List",
+                    difficulty: "Easy"
+                }
+            ]
+        },
+
+        "Stack & Queue": {
+            description:
+                "Learn LIFO, FIFO and monotonic stack patterns.",
+
+            learn: ["Stack", "Queue", "Monotonic Stack"],
+
+            resources: [
+                { title: "Stack & Queue Basics" }
+            ],
+
+            problems: [
+                {
+                    name: "Valid Parentheses",
+                    difficulty: "Easy"
+                }
+            ]
+        },
+
+        "Binary Search": {
+            description:
+                "Learn searching on sorted arrays and answer-space searching.",
+
+            learn: ["Classic Binary Search", "Search Space"],
+
+            resources: [
+                { title: "Binary Search Patterns" }
+            ],
+
+            problems: [
+                {
+                    name: "Search Insert Position",
+                    difficulty: "Easy"
+                }
+            ]
+        },
+
+        Trees: {
+            description:
+                "Master DFS, BFS and recursive tree traversals.",
+
+            learn: ["DFS", "BFS", "Recursion"],
+
+            resources: [
+                { title: "Tree Fundamentals" }
+            ],
+
+            problems: [
+                {
+                    name: "Maximum Depth Of Binary Tree",
+                    difficulty: "Easy"
+                }
+            ]
+        },
+
+        Graphs: {
+            description:
+                "Learn traversal, shortest paths and graph representations.",
+
+            learn: ["BFS", "DFS", "Shortest Path"],
+
+            resources: [
+                { title: "Graph Roadmap" }
+            ],
+
+            problems: [
+                {
+                    name: "Number Of Islands",
+                    difficulty: "Medium"
+                }
+            ]
+        },
+
+        "Dynamic Programming": {
+            description:
+                "Learn memoization, tabulation and state transitions.",
+
+            learn: ["Memoization", "Tabulation"],
+
+            resources: [
+                { title: "DP Patterns" }
+            ],
+
+            problems: [
+                {
+                    name: "Climbing Stairs",
+                    difficulty: "Easy"
+                }
             ]
         }
+
     };
 
     const [selectedTopic, setSelectedTopic] =
@@ -106,6 +250,9 @@ function DSARoadmap() {
                     <h2>
                         {selectedTopic}
                     </h2>
+                    <p className="topic-description">
+                        {roadmapData[selectedTopic].description}
+                    </p>
 
                     <div className="detail-section">
 
@@ -130,14 +277,32 @@ function DSARoadmap() {
                             Resources
                         </h3>
 
-                        <ul>
+                        <div className="resources-grid">
+
                             {roadmapData[selectedTopic]
-                                .resources.map((item) => (
-                                    <li key={item}>
-                                        {item}
-                                    </li>
-                                ))}
-                        </ul>
+                                .resources.map((resource) => (
+
+                                <a
+                                    key={resource.title}
+                                    href={resource.link}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="resource-card"
+                                >
+
+                                    <h4>
+                                        📚 {resource.title}
+                                    </h4>
+
+                                    <span>
+                                        Open Resource →
+                                    </span>
+
+                                </a>
+
+                            ))}
+
+                        </div>
 
                     </div>
 
@@ -147,14 +312,33 @@ function DSARoadmap() {
                             Practice Problems
                         </h3>
 
-                        <ul>
+                        <div className="problem-list">
+
                             {roadmapData[selectedTopic]
-                                .problems.map((item) => (
-                                    <li key={item}>
-                                        {item}
-                                    </li>
-                                ))}
-                        </ul>
+                                .problems.map((problem) => (
+
+                                <div
+                                    key={problem.name}
+                                    className="problem-card"
+                                >
+
+                                    <span
+                                        className={
+                                            `difficulty ${problem.difficulty.toLowerCase()}`
+                                        }
+                                    >
+                                        {problem.difficulty}
+                                    </span>
+
+                                    <p>
+                                        {problem.name}
+                                    </p>
+
+                                </div>
+
+                            ))}
+
+                        </div>
 
                     </div>
 
