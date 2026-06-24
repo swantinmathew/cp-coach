@@ -9,15 +9,67 @@ function DSARoadmap() {
             description:
                 "Learn traversal, prefix sums, two pointers and common array patterns.",
 
-            learn: [
-                "Traversal",
-                "Prefix Sum",
-                "Two Pointers"
+            levels: [
+                {
+                    title: "Level 1 - Fundamentals",
+                    topics: [
+                        "Array Traversal",
+                        "Frequency Counting",
+                        "Sorting Basics"
+                    ]
+                },
+                {
+                    title: "Level 2 - Intermediate",
+
+                    topics: [
+                        "Prefix Sum",
+                        "Suffix Sum",
+                        "Two Pointers"
+                    ]
+                },
+
+                {
+                    title: "Level 3 - Patterns",
+
+                    topics: [
+                        "Kadane's Algorithm",
+                        "Sliding Window Basics"
+                    ]
+                },
+
+                {
+                    title: "Level 4 - Advanced",
+
+                    topics: [
+                        "Matrix Traversal",
+                        "Binary Search On Arrays"
+                    ]
+                }
+
             ],
 
             resources: [
-                { title: "NeetCode Arrays" },
-                { title: "Striver Arrays" }
+
+            {
+                category: "Learn",
+                title: "GeeksForGeeks Arrays"
+            },
+
+            {
+                category: "Watch",
+                title: "NeetCode Arrays"
+            },
+
+            {
+                category: "Watch",
+                title: "Abdul Bari Arrays"
+            },
+
+            {
+                category: "Practice",
+                title: "LeetCode Array Problems"
+            }
+
             ],
 
             problems: [
@@ -36,10 +88,56 @@ function DSARoadmap() {
             description:
                 "Master string manipulation, palindrome techniques and pattern matching.",
 
-            learn: ["Basics", "Palindrome", "Pattern Matching"],
+            levels: [
+
+                {
+                    title: "Level 1 - Fundamentals",
+
+                    topics: [
+                        "String Basics",
+                        "Character Arrays",
+                        "String Traversal"
+                    ]
+                },
+
+                {
+                    title: "Level 2 - Intermediate",
+
+                    topics: [
+                        "Palindrome",
+                        "Frequency Counting",
+                        "String Comparison"
+                    ]
+                },
+
+                {
+                    title: "Level 3 - Patterns",
+
+                    topics: [
+                        "Pattern Matching",
+                        "Sliding Window On Strings"
+                    ]
+                }
+
+            ],
 
             resources: [
-                { title: "NeetCode Strings" }
+
+            {
+                category: "Learn",
+                title: "GFG Strings"
+            },
+
+            {
+                category: "Watch",
+                title: "NeetCode Strings"
+            },
+
+            {
+                category: "Practice",
+                title: "LeetCode String Problems"
+            }
+
             ],
 
             problems: [
@@ -52,12 +150,48 @@ function DSARoadmap() {
 
         Hashing: {
             description:
-                "Understand HashMap, HashSet and frequency counting techniques.",
+                "Understand HashMap and frequency counting techniques.",
 
-            learn: ["HashMap", "HashSet", "Frequency Count"],
+            levels: [
 
-            resources: [
-                { title: "Hashing Fundamentals" }
+                {
+                    title: "Level 1 - Fundamentals",
+
+                    topics: [
+                        "HashMap",
+                        "HashSet",
+                        "Frequency Count"
+                    ]
+                },
+
+                {
+                    title: "Level 2 - Intermediate",
+
+                    topics: [
+                        "Count Frequencies",
+                        "Unique Elements"
+                    ]
+                }
+
+            ],
+
+           resources: [
+
+            {
+                category: "Learn",
+                title: "HashMap Fundamentals"
+            },
+
+            {
+                category: "Watch",
+                title: "Striver Hashing"
+            },
+
+            {
+                category: "Practice",
+                title: "Hashing Problems Sheet"
+            }
+
             ],
 
             problems: [
@@ -72,35 +206,134 @@ function DSARoadmap() {
             description:
                 "Learn fixed and variable window patterns for optimized solutions.",
 
-            learn: ["Fixed Window", "Variable Window"],
+            levels: [
 
+            {
+                title: "Level 1 - Fundamentals",
+
+                topics: [
+                    "Fixed Size Window",
+                    "Window Sum",
+                    "Maximum Average Subarray"
+                ]
+            },
+
+            {
+                title: "Level 2 - Intermediate",
+
+                topics: [
+                    "Variable Size Window",
+                    "Longest Substring",
+                    "Frequency Tracking"
+                ]
+            },
+
+            {
+                title: "Level 3 - Advanced",
+
+                topics: [
+                    "Minimum Window Substring",
+                    "Sliding Window Optimization"
+                ]
+            }
+
+            ],
             resources: [
-                { title: "Sliding Window Patterns" }
+
+            {
+                category: "Learn",
+                title: "Sliding Window Pattern Guide"
+            },
+
+            {
+                category: "Watch",
+                title: "NeetCode Sliding Window"
+            },
+
+            {
+                category: "Watch",
+                title: "Abdul Bari Sliding Window"
+            },
+
+            {
+                category: "Practice",
+                title: "LeetCode Sliding Window Problems"
+            }
+
             ],
 
-            problems: [
-                {
-                    name: "Maximum Average Subarray",
-                    difficulty: "Medium"
-                }
-            ]
+        problems:[
+        {name:"Maximum Average Subarray",difficulty:"Easy"},
+        {name:"Longest Substring Without Repeating Characters",difficulty:"Medium"},
+        {name:"Minimum Window Substring",difficulty:"Hard"}
+        ]    
         },
 
         "Linked Lists": {
             description:
                 "Master pointers, reversal and fast-slow pointer techniques.",
 
-            learn: ["Traversal", "Reversal", "Fast Slow Pointers"],
+            levels:[
 
+            {
+            title:"Level 1 - Fundamentals",
+
+            topics:[
+            "Traversal",
+            "Insertion",
+            "Deletion"
+            ]
+            },
+
+            {
+            title:"Level 2 - Intermediate",
+
+            topics:[
+            "Reverse Linked List",
+            "Middle Of Linked List",
+            "Fast Slow Pointers"
+            ]
+            },
+
+            {
+            title:"Level 3 - Advanced",
+
+            topics:[
+            "Cycle Detection",
+            "Merge Linked Lists",
+            "LRU Cache Basics"
+            ]
+            }
+
+            ],
             resources: [
-                { title: "Linked List Guide" }
+
+            {
+                category: "Learn",
+                title: "Linked List Fundamentals"
+            },
+
+            {
+                category: "Watch",
+                title: "NeetCode Linked Lists"
+            },
+
+            {
+                category: "Watch",
+                title: "Striver Linked Lists"
+            },
+
+            {
+                category: "Practice",
+                title: "Linked List Problems Sheet"
+            }
+
             ],
 
-            problems: [
-                {
-                    name: "Reverse Linked List",
-                    difficulty: "Easy"
-                }
+            problems:[
+            {name:"Reverse Linked List",difficulty:"Easy"},
+            {name:"Middle Of Linked List",difficulty:"Easy"},
+            {name:"Linked List Cycle",difficulty:"Medium"}
             ]
         },
 
@@ -108,17 +341,66 @@ function DSARoadmap() {
             description:
                 "Learn LIFO, FIFO and monotonic stack patterns.",
 
-            learn: ["Stack", "Queue", "Monotonic Stack"],
+            levels:[
 
-            resources: [
-                { title: "Stack & Queue Basics" }
+            {
+            title:"Level 1 - Fundamentals",
+
+            topics:[
+            "Stack Operations",
+            "Queue Operations",
+            "Applications"
+            ]
+            },
+
+            {
+            title:"Level 2 - Intermediate",
+
+            topics:[
+            "Balanced Parentheses",
+            "Monotonic Stack",
+            "Circular Queue"
+            ]
+            },
+
+            {
+            title:"Level 3 - Advanced",
+
+            topics:[
+            "Next Greater Element",
+            "Min Stack",
+            "Deque"
+            ]
+            }
+
             ],
+            resources: [
 
-            problems: [
-                {
-                    name: "Valid Parentheses",
-                    difficulty: "Easy"
-                }
+            {
+                category: "Learn",
+                title: "Stack And Queue Basics"
+            },
+
+            {
+                category: "Watch",
+                title: "NeetCode Stack & Queue"
+            },
+
+            {
+                category: "Watch",
+                title: "Abdul Bari Stack"
+            },
+
+            {
+                category: "Practice",
+                title: "Stack & Queue Problem Set"
+            }
+
+            ],
+            problems:[
+            {name:"Valid Parentheses",difficulty:"Easy"},
+            {name:"Min Stack",difficulty:"Medium"},
+            {name:"Daily Temperatures",difficulty:"Medium"}
             ]
         },
 
@@ -126,17 +408,65 @@ function DSARoadmap() {
             description:
                 "Learn searching on sorted arrays and answer-space searching.",
 
-            learn: ["Classic Binary Search", "Search Space"],
+            levels:[
 
-            resources: [
-                { title: "Binary Search Patterns" }
+            {
+            title:"Level 1 - Fundamentals",
+
+            topics:[
+            "Classic Binary Search",
+            "Lower Bound",
+            "Upper Bound"
+            ]
+            },
+
+            {
+            title:"Level 2 - Intermediate",
+
+            topics:[
+            "Search Insert Position",
+            "First And Last Occurrence"
+            ]
+            },
+
+            {
+            title:"Level 3 - Advanced",
+
+            topics:[
+            "Binary Search On Answer",
+            "Peak Element",
+            "Rotated Arrays"
+            ]
+            }
+
             ],
+            resources: [
 
-            problems: [
-                {
-                    name: "Search Insert Position",
-                    difficulty: "Easy"
-                }
+            {
+                category: "Learn",
+                title: "Binary Search Fundamentals"
+            },
+
+            {
+                category: "Watch",
+                title: "NeetCode Binary Search"
+            },
+
+            {
+                category: "Watch",
+                title: "Striver Binary Search Playlist"
+            },
+
+            {
+                category: "Practice",
+                title: "Binary Search Problem Set"
+            }
+
+            ],
+            problems:[
+            {name:"Binary Search",difficulty:"Easy"},
+            {name:"Search Insert Position",difficulty:"Easy"},
+            {name:"Find Peak Element",difficulty:"Medium"}
             ]
         },
 
@@ -144,35 +474,135 @@ function DSARoadmap() {
             description:
                 "Master DFS, BFS and recursive tree traversals.",
 
-            learn: ["DFS", "BFS", "Recursion"],
+            levels:[
 
+            {
+            title:"Level 1 - Fundamentals",
+
+            topics:[
+            "Binary Tree",
+            "DFS",
+            "BFS",
+            "Traversals"
+            ]
+            },
+
+            {
+            title:"Level 2 - Intermediate",
+
+            topics:[
+            "Height Of Tree",
+            "Diameter",
+            "Balanced Tree"
+            ]
+            },
+
+            {
+            title:"Level 3 - Advanced",
+
+            topics:[
+            "BST",
+            "Lowest Common Ancestor",
+            "Serialize Tree"
+            ]
+            }
+
+            ],
             resources: [
-                { title: "Tree Fundamentals" }
+
+            {
+                category: "Learn",
+                title: "Binary Trees Explained"
+            },
+
+            {
+                category: "Watch",
+                title: "NeetCode Trees"
+            },
+
+            {
+                category: "Watch",
+                title: "Abdul Bari Trees"
+            },
+
+            {
+                category: "Practice",
+                title: "Tree Problems Sheet"
+            }
+
             ],
 
-            problems: [
-                {
-                    name: "Maximum Depth Of Binary Tree",
-                    difficulty: "Easy"
-                }
-            ]
+            problems:[
+            {name:"Maximum Depth Of Binary Tree",difficulty:"Easy"},
+            {name:"Balanced Binary Tree",difficulty:"Easy"},
+            {name:"Lowest Common Ancestor",difficulty:"Medium"}
+            ]   
         },
 
         Graphs: {
             description:
                 "Learn traversal, shortest paths and graph representations.",
 
-            learn: ["BFS", "DFS", "Shortest Path"],
+            levels:[
 
+            {
+            title:"Level 1 - Fundamentals",
+
+            topics:[
+            "Graph Representation",
+            "BFS",
+            "DFS"
+            ]
+            },
+
+            {
+            title:"Level 2 - Intermediate",
+
+            topics:[
+            "Connected Components",
+            "Cycle Detection",
+            "Topological Sort"
+            ]
+            },
+
+            {
+            title:"Level 3 - Advanced",
+
+            topics:[
+            "Dijkstra",
+            "Minimum Spanning Tree",
+            "Union Find"
+            ]
+            }
+
+            ],
             resources: [
-                { title: "Graph Roadmap" }
+            {
+                category: "Learn",
+                title: "Graph Fundamentals"
+            },
+
+            {
+                category: "Watch",
+                title: "Striver Graph Series"
+            },
+
+            {
+                category: "Watch",
+                title: "William Fiset Graphs"
+            },
+
+            {
+                category: "Practice",
+                title: "Graph Problems Sheet"
+            }
+
             ],
 
-            problems: [
-                {
-                    name: "Number Of Islands",
-                    difficulty: "Medium"
-                }
+            problems:[
+            {name:"Number Of Islands",difficulty:"Medium"},
+            {name:"Clone Graph",difficulty:"Medium"},
+            {name:"Course Schedule",difficulty:"Medium"}
             ]
         },
 
@@ -180,17 +610,67 @@ function DSARoadmap() {
             description:
                 "Learn memoization, tabulation and state transitions.",
 
-            learn: ["Memoization", "Tabulation"],
+            levels:[
 
+            {
+            title:"Level 1 - Fundamentals",
+
+            topics:[
+            "Recursion",
+            "Memoization",
+            "Tabulation"
+            ]
+            },
+
+            {
+            title:"Level 2 - Intermediate",
+
+            topics:[
+            "Climbing Stairs",
+            "House Robber",
+            "Coin Change"
+            ]
+            },
+
+            {
+            title:"Level 3 - Advanced",
+
+            topics:[
+            "Longest Increasing Subsequence",
+            "Knapsack",
+            "DP On Trees"
+            ]
+            }
+
+            ],
             resources: [
-                { title: "DP Patterns" }
+
+            {
+                category: "Learn",
+                title: "DP Introduction"
+            },
+
+            {
+                category: "Watch",
+                title: "NeetCode DP"
+            },
+
+            {
+                category: "Watch",
+                title: "Aditya Verma DP"
+            },
+
+            {
+                category: "Practice",
+                title: "DP Problems Sheet"
+            }
+
             ],
 
-            problems: [
-                {
-                    name: "Climbing Stairs",
-                    difficulty: "Easy"
-                }
+            problems:[
+            {name:"Climbing Stairs",difficulty:"Easy"},
+            {name:"House Robber",difficulty:"Medium"},
+            {name:"Coin Change",difficulty:"Medium"}
             ]
         }
 
@@ -257,20 +737,43 @@ function DSARoadmap() {
                     <div className="detail-section">
 
                         <h3>
-                            What You'll Learn
+                            Learning Path
                         </h3>
 
-                        <ul>
+                        <div className="levels-container">
+
                             {roadmapData[selectedTopic]
-                                .learn.map((item) => (
-                                    <li key={item}>
-                                        {item}
-                                    </li>
-                                ))}
-                        </ul>
+                                .levels.map((level) => (
+
+                                <div
+                                    key={level.title}
+                                    className="level-card"
+                                >
+
+                                    <h4>
+                                        {level.title}
+                                    </h4>
+
+                                    <ul>
+
+                                        {level.topics.map((topic) => (
+
+                                            <li key={topic}>
+                                                {topic}
+                                            </li>
+
+                                        ))}
+
+                                    </ul>
+
+                                </div>
+
+                            ))}
+
+                        </div>
 
                     </div>
-
+                    
                     <div className="detail-section">
 
                         <h3>
@@ -282,23 +785,20 @@ function DSARoadmap() {
                             {roadmapData[selectedTopic]
                                 .resources.map((resource) => (
 
-                                <a
+                                <div
                                     key={resource.title}
-                                    href={resource.link}
-                                    target="_blank"
-                                    rel="noreferrer"
                                     className="resource-card"
                                 >
 
+                                    <div className="resource-category">
+                                        {resource.category}
+                                    </div>
+
                                     <h4>
-                                        📚 {resource.title}
+                                        {resource.title}
                                     </h4>
 
-                                    <span>
-                                        Open Resource →
-                                    </span>
-
-                                </a>
+                                </div>
 
                             ))}
 
