@@ -4,6 +4,7 @@ import FeaturesSection from "../components/landing/FeaturesSection";
 import Footer from "../components/landing/Footer";
 import DashboardShowcase from "../components/landing/DashboardShowcase";
 import HowItWorks from "../components/landing/HowItWorks";
+import AnalyticsSection from "../components/landing/AnalyticsSection";
 
 function LandingPage()
 {
@@ -12,7 +13,7 @@ function LandingPage()
         <Navbar/>
         <HeroSection/>
         <FeaturesSection/>
-        <DashboardShowcase />
+        <AnalyticsSection />
         <HowItWorks />
         <Footer/>
         </>

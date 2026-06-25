@@ -2,13 +2,17 @@ import "./Compare.css"
 import API from "../services/api";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 function Compare() {
 
     const location = useLocation();
     const currentProfile = location.state?.currentProfile;
+    const directHandle =
+    location.state?.directHandle;
     const [compareHandle, setCompareHandle] = useState("");
     const [compareProfile, setCompareProfile] = useState(null)
     const [loading, setLoading] = useState(false);
+    
     const compareProfiles = async () => {
 
         try {
@@ -35,6 +39,31 @@ function Compare() {
         }
 
     };
+    useEffect(() => {
+
+        if (directHandle) {
+
+            setCompareHandle(
+                directHandle
+            );
+
+        }
+
+    }, [directHandle]);
+
+    useEffect(() => {
+
+        if (
+            directHandle &&
+            compareHandle
+        ) {
+
+            compareProfiles();
+
+        }
+
+    }, [compareHandle]);
+
     const getRankClass = (rank) => {
 
         const r = rank?.toLowerCase() || "";

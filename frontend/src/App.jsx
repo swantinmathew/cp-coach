@@ -9,6 +9,7 @@ import Dashboard from "./pages/Dashboard";
 import Compare from "./pages/Compare";
 import DSARoadmap from "./pages/DSARoadmap";
 import PlacementRoadmap from "./pages/PlacementRoadmap";
+import CompareDirect from "./pages/CompareDirect";
 
 
 function App() {
@@ -39,6 +40,10 @@ function App() {
                 <Route
                     path="/placement-roadmap"
                     element={<PlacementRoadmap />}
+                />
+                <Route
+                    path="/compare-direct"
+                    element={<CompareDirect />}
                 />
 
             </Routes>
