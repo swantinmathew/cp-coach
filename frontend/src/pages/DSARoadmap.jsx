@@ -675,7 +675,6 @@ function DSARoadmap() {
         }
 
     };
-
     const [selectedTopic, setSelectedTopic] =
         useState("Arrays");
 

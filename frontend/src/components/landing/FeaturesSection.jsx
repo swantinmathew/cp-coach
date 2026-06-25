@@ -74,6 +74,12 @@ function FeaturesSection(){
                             Core CS → Resume →
                             Interviews
                         </p>
+                        <Link
+                            to="/placement-roadmap"
+                            className="journey-link"
+                        >
+                            Open Roadmap →
+                        </Link>
 
                     </div>
 
@@ -111,7 +117,7 @@ function FeaturesSection(){
 
                 <div className="growth-header">
 
-                    <span clasName="section-badge">
+                    <span className="section-badge">
                         PLATFORM
                     </span>
 

@@ -8,6 +8,7 @@ import LandingPage from "./pages/LandingPage";
 import Dashboard from "./pages/Dashboard";
 import Compare from "./pages/Compare";
 import DSARoadmap from "./pages/DSARoadmap";
+import PlacementRoadmap from "./pages/PlacementRoadmap";
 
 
 function App() {
@@ -34,6 +35,10 @@ function App() {
                 <Route
                     path="/roadmaps/dsa"
                     element={<DSARoadmap />}
+                />
+                <Route
+                    path="/placement-roadmap"
+                    element={<PlacementRoadmap />}
                 />
 
             </Routes>
