@@ -1,10 +1,8 @@
 import Navbar from "../components/landing/Navbar";
 import HeroSection from "../components/landing/HeroSection";
-import FeaturesSection from "../components/landing/FeaturesSection";
-import RoadmapShowcase from "../components/landing/RoadmapShowcase";
-import AnalyticsSection from "../components/landing/AnalyticsSection";
 import HowItWorks from "../components/landing/HowItWorks";
 import Footer from "../components/landing/Footer";
+import PlatformSection from "../components/landing/PlatformSection";
 
 function LandingPage() {
 
@@ -16,11 +14,7 @@ function LandingPage() {
 
             <HeroSection />
 
-            <FeaturesSection />
-
-            <RoadmapShowcase />
-
-            <AnalyticsSection />
+            <PlatformSection />
 
             <HowItWorks />
 
