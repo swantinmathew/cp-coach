@@ -27,167 +27,200 @@
     display:flex;
     justify-content:center;
 }
+/* ===========================
+   Feature Grid
+=========================== */
 
-.platform-grid{
-    margin-top:80px;
+.feature-grid{
+    margin-top:90px;
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:28px;
+    gap:32px;
 }
 
-.platform-card{
+.feature-card{
     background:#fff;
-    border:1px solid #e5e7eb;
-    border-radius:24px;
-    padding:28px;
-    display:grid;
-    grid-template-columns:45% 55%;
-    gap:28px;
+    border:1px solid #e7e7e7;
+    border-radius:28px;
+    padding:34px;
+    display:flex;
+    gap:34px;
     align-items:center;
     transition:.35s;
     box-shadow:0 10px 30px rgba(0,0,0,.05);
 }
 
-.platform-card:hover{
+.feature-card:hover{
     transform:translateY(-8px);
-    box-shadow:0 20px 45px rgba(0,0,0,.08);
+    box-shadow:0 18px 40px rgba(0,0,0,.08);
 }
 
-.preview-panel{
-    background:#f8fafc;
-    border-radius:20px;
-    padding:30px;
+
+/* ===========================
+   Left Preview
+=========================== */
+
+.feature-image{
+    flex:1;
     min-height:220px;
+
+    background:#f8fafc;
+
+    border-radius:22px;
 
     display:flex;
     justify-content:center;
     align-items:center;
+
     overflow:hidden;
 }
 
-.card-content{
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
+
+/* ===========================
+   Right Content
+=========================== */
+
+.feature-info{
+    flex:1;
 }
 
-.card-icon{
+.feature-icon{
     width:58px;
     height:58px;
-    border-radius:16px;
+    border-radius:18px;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     font-size:26px;
-    margin-bottom:18px;
+
+    margin-bottom:20px;
 }
 
 .green{
-    background:#e9f8eb;
-    color:#2B7B37;
+    background:#EAF7ED;
 }
 
 .blue{
-    background:#eef2ff;
-    color:#4f46e5;
+    background:#EEF2FF;
 }
 
 .orange{
-    background:#fff3e6;
-    color:#ea580c;
+    background:#FFF3E7;
 }
 
 .yellow{
-    background:#fff8db;
-    color:#ca8a04;
+    background:#FFF7D8;
 }
 
-.card-content h3{
-    font-size:22px;
-    margin-bottom:14px;
+.feature-info h3{
+    font-size:34px;
+    margin-bottom:18px;
+    color:#0f172a;
 }
 
-.card-content p{
-    color:#6b7280;
+.feature-info p{
+    font-size:18px;
     line-height:1.8;
-    margin-bottom:22px;
-    gap:10px;
+    color:#64748b;
+    margin-bottom:24px;
 }
 
-.card-link{
-    text-decoration:none;
+.feature-link{
     font-weight:600;
+    text-decoration:none;
+    font-size:17px;
 }
 
-.card-link.green{
+.feature-link.green{
     color:#2B7B37;
 }
 
-.card-link.blue{
+.feature-link.blue{
     color:#4f46e5;
 }
 
-.card-link.orange{
+.feature-link.orange{
     color:#ea580c;
 }
 
 
-/* ---------------- Roadmap Preview ---------------- */
+/* ===========================
+   Coming Soon
+=========================== */
+
+.coming-soon{
+    display:inline-block;
+    padding:10px 18px;
+    border-radius:999px;
+
+    background:#FFF3C4;
+    color:#B45309;
+
+    font-weight:600;
+}
+
+
+/* ===========================
+   Roadmap Preview
+=========================== */
 
 .roadmap-preview{
-    width:100%;
-    height:100%;
+
     display:grid;
-    grid-template-columns:repeat(5,auto);
+    grid-template-columns:repeat(3,90px);
+
+    gap:18px;
+
     justify-content:center;
     align-content:center;
-    gap:16px 12px;
 }
 
 .roadmap-chip{
 
-    padding:10px 18px;
-    background:#fff;
-
+    background:white;
     border:1px solid #e5e7eb;
+
     border-radius:14px;
-    font-weight:600;
+
+    padding:12px;
+
     text-align:center;
+
+    font-weight:600;
 }
 
 .roadmap-arrow{
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
     color:#2B7B37;
-    font-size:22px;
+    font-size:24px;
     font-weight:bold;
 }
 
-.roadmap-arrow.down{
 
-    grid-column:3;
-}
+/* ===========================
+   Dashboard Preview
+=========================== */
 
-/* ---------------- Dashboard ---------------- */
+.analytics-preview{
 
-.preview-panel h5{
-    align-self:flex-start;
-    margin-bottom:24px;
-}
-
-.mini-bars{
     display:flex;
+
     align-items:flex-end;
-    gap:12px;
-    height:120px;
+
+    gap:14px;
+
+    height:140px;
 }
 
 .bar{
+
     width:18px;
-    background:#2B7B37;
+
     border-radius:8px;
+
+    background:#2B7B37;
 }
 
 .h40{height:40px;}
@@ -196,81 +229,112 @@
 .h70{height:70px;}
 .h90{height:90px;}
 
-.bar{
-    transition:.35s;
-}
 
-.platform-card:hover .bar{
-    opacity:.85;
-}
+/* ===========================
+   Compare Preview
+=========================== */
 
-/* ---------------- Compare ---------------- */
+.compare-preview{
 
-.compare-panel{
     display:flex;
-    justify-content:space-between;
+
     align-items:center;
+
+    justify-content:space-between;
+
+    width:100%;
 }
 
-.compare-side{
+.compare-user{
+
     text-align:center;
 }
 
-.compare-side strong{
-    display:block;
-    margin-top:8px;
+.compare-user h2{
+
+    margin-top:10px;
+
     color:#2B7B37;
-    font-size:32px;
+
+    font-size:34px;
 }
 
 .compare-vs{
-    font-size:34px;
+
+    font-size:42px;
+
     font-weight:bold;
-    color:#6b7280;
-}
-.compare-side h2{
-    margin:8px 0 0;
-    color:#111827;
-    font-size:34px;
-}
-.roadmap-flow span{
-    color:#2B7B37;
-    font-size:22px;
-    font-weight:700;
+
+    color:#94a3b8;
 }
 
-/* ---------------- Progress ---------------- */
 
-.progress-panel{
+/* ===========================
+   Progress Preview
+=========================== */
+
+.progress-preview{
+
     display:flex;
-    justify-content:space-evenly;
+
     align-items:center;
+
+    gap:28px;
 }
 
 .progress-circle{
-    width:100px;
-    height:100px;
+
+    width:110px;
+
+    height:110px;
+
     border-radius:50%;
-    border:8px solid #d1fae5;
+
+    border:8px solid #D1FAE5;
+
     border-top-color:#2B7B37;
+
     display:flex;
+
     justify-content:center;
+
     align-items:center;
+
     font-size:28px;
+
     font-weight:bold;
 }
 
 .progress-list{
+
     display:flex;
+
     flex-direction:column;
+
     gap:12px;
+
     font-weight:600;
+
     color:#374151;
 }
-.coming-soon{
-    background:#fef3c7;
-    color:#b45309;
-    padding:10px 18px;
-    border-radius:999px;
-    font-weight:600;
+
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:992px){
+
+    .feature-grid{
+        grid-template-columns:1fr;
+    }
+
+    .feature-card{
+        flex-direction:column;
+    }
+
+    .feature-image{
+        width:100%;
+    }
+
 }
