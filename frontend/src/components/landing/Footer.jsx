@@ -1,9 +1,19 @@
 import "./Footer.css";
+import FooterCTA from "./FooterCTA";
+import FooterLinks from "./FooterLinks";
+import FooterBottom from "./FooterBottom";
+
 function Footer() {
     return (
-        <div className="footer">
-            Footer
-        </div>
+        <footer className="footer">
+
+            <FooterCTA />
+
+            <FooterLinks />
+
+            <FooterBottom />
+
+        </footer>
     );
 }
 
