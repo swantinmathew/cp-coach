@@ -119,173 +119,191 @@ function Compare() {
             </div>
             
             {compareProfile && currentProfile && (
-
                 
-                <div className="battle-table">
+            <div className="compare-content">
 
-                    <div className="battle-header">
+                {/* ---------------- Summary ---------------- */}
 
-                        <div className="battle-banner">
+                <section className="summary-section">
 
-                            <div className="fighter-side">
+                    <h2>
 
-                                <h3>{currentProfile.handle}</h3>
+                        Comparison Summary
 
-                                <div className={`rank ${getRankClass(currentProfile.rank)}`}>
-                                    {currentProfile.rank}
-                                </div>
+                    </h2>
 
-                                <div className="banner-stat">
-                                    Rating: {currentProfile.rating}
-                                </div>
+                    <div className="summary-table">
 
-                                <div className="banner-stat">
-                                    Max: {currentProfile.maxRating}
-                                </div>
+                        <div className="summary-row">
 
-                            </div>
+                            <span>Current Rating</span>
 
-                            <div className="battle-center">
+                            <strong>{currentProfile.rating}</strong>
 
-                                <div className="battle-vs">
-                                    ⚔️ VS ⚔️
-                                </div>
-
-                            </div>
-
-                            <div className="fighter-side">
-
-                                <h3>{compareProfile.handle}</h3>
-
-                                <div className={`rank ${getRankClass(compareProfile.rank)}`}>
-                                    {compareProfile.rank}
-                                </div>
-
-                                <div className="banner-stat">
-                                    Rating: {compareProfile.rating}
-                                </div>
-
-                                <div className="banner-stat">
-                                    Max: {compareProfile.maxRating}
-                                </div>
-
-                            </div>
+                            <strong>{compareProfile.rating}</strong>
 
                         </div>
 
-                    </div>  
-                    <div className="section-divider">
-                        Detailed Comparison
-                    </div>  
+                        <div className="summary-row">
 
-                    <div className="battle-row">
+                            <span>Max Rating</span>
 
-                        <span
-                            className={
-                                currentProfile.rating >
-                                compareProfile.rating
-                                    ? "winner"
-                                    : ""
-                            }
-                        >
-                            {currentProfile.rating}
-                        </span>
+                            <strong>{currentProfile.maxRating}</strong>
 
-                        <span className="metric">
-                            Rating
-                        </span>
+                            <strong>{compareProfile.maxRating}</strong>
 
-                        <span
-                            className={
-                                compareProfile.rating >
-                                currentProfile.rating
-                                    ? "winner"
-                                    : ""
-                            }
-                        >
-                            {compareProfile.rating}
-                        </span>
+                        </div>
+
+                        <div className="summary-row">
+
+                            <span>Rank</span>
+
+                            <strong>{currentProfile.rank}</strong>
+
+                            <strong>{compareProfile.rank}</strong>
+
+                        </div>
+
+                        <div className="summary-row">
+
+                            <span>Contribution</span>
+
+                            <strong>{currentProfile.contribution}</strong>
+
+                            <strong>{compareProfile.contribution}</strong>
+
+                        </div>
 
                     </div>
 
-                    <div className="battle-row">
+                </section>
 
-                        <span
-                            className={
-                                currentProfile.maxRating >
-                                compareProfile.maxRating
-                                    ? "winner"
-                                    : ""
-                            }
-                        >
-                            {currentProfile.maxRating}
-                        </span>
+                {/* ---------------- Rating Chart ---------------- */}
 
-                        <span className="metric">
-                            Max Rating
-                        </span>
+                <section className="chart-section">
 
-                        <span
-                            className={
-                                compareProfile.maxRating >
-                                currentProfile.maxRating
-                                    ? "winner"
-                                    : ""
-                            }
-                        >
-                            {compareProfile.maxRating}
-                        </span>
+                    <h2>
+
+                        Rating History Comparison
+
+                    </h2>
+
+                    <div className="chart-placeholder">
+
+                        Rating Graph will be here
 
                     </div>
 
-                    <div className="battle-row">
+                </section>
 
-                        <span>
-                            {currentProfile.rank}
-                        </span>
+                {/* ---------------- Topic Radar ---------------- */}
 
-                        <span className="metric">
-                            Rank
-                        </span>
+                <section className="topic-section">
 
-                        <span>
-                            {compareProfile.rank}
-                        </span>
+                    <h2>
 
-                    </div>
+                        Topic Strength Radar
 
-                    <div className="battle-row">
+                    </h2>
 
-                        <span
-                            className={
-                                currentProfile.contribution >
-                                compareProfile.contribution
-                                    ? "winner"
-                                    : ""
-                            }
-                        >
-                            {currentProfile.contribution}
-                        </span>
+                    <div className="chart-placeholder">
 
-                        <span className="metric">
-                            Contribution
-                        </span>
-
-                        <span
-                            className={
-                                compareProfile.contribution >
-                                currentProfile.contribution
-                                    ? "winner"
-                                    : ""
-                            }
-                        >
-                            {compareProfile.contribution}
-                        </span>
+                        Radar Chart
 
                     </div>
 
-                </div>
+                </section>
 
+                {/* ---------------- Breakdown ---------------- */}
+
+                <section className="breakdown-section">
+
+                    <h2>
+
+                        Problem Solving Breakdown
+
+                    </h2>
+
+                    <div className="chart-placeholder">
+
+                        Progress Bars
+
+                    </div>
+
+                </section>
+
+                {/* ---------------- Recent ---------------- */}
+
+                <section className="recent-section">
+
+                    <h2>
+
+                        Recent Performance
+
+                    </h2>
+
+                    <div className="recent-grid">
+
+                        <div>
+
+                            <h3>{currentProfile.handle}</h3>
+
+                            <p>Contest History</p>
+
+                        </div>
+
+                        <div>
+
+                            <h3>{compareProfile.handle}</h3>
+
+                            <p>Contest History</p>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                {/* ---------------- AI ---------------- */}
+
+                <section className="ai-section">
+
+                    <h2>
+
+                        AI Comparison Summary
+
+                    </h2>
+
+                    <div className="ai-box">
+
+                        <ul>
+
+                            <li>Better in Graphs</li>
+
+                            <li>Higher Rating Growth</li>
+
+                            <li>More Consistent Performance</li>
+
+                        </ul>
+
+                        <h4>
+
+                            Recommendation
+
+                        </h4>
+
+                        <p>
+
+                            Focus on Dynamic Programming and
+                            Geometry to reduce the gap.
+
+                        </p>
+
+                    </div>
+
+                </section>
+
+            </div>
         )}
         </div>
 
