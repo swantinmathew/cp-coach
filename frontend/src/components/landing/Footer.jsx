@@ -5,7 +5,7 @@ import FooterBottom from "./FooterBottom";
 
 function Footer() {
     return (
-        <footer className="footer">
+        <footer id="footer" className="footer">
 
             <FooterCTA />
 

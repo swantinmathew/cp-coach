@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function PlatformSection() {
     return (
 
-        <section className="platform-section">
+        <section id="platform" className="platform-section">
 
             <div className="platform-hero">
 
