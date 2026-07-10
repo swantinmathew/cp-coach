@@ -8,6 +8,7 @@ const strongTopicRoutes = require("./routes/strongTopicRoutes");
 const recommendationRoutes = require("./routes/recommendationRoutes");
 const placementScoreRoutes = require("./routes/placementScoreRoutes");
 const ratingRoutes = require("./routes/ratingRoutes");
+const compareAIRoutes = require("./routes/compareAIRoutes");
 const app = express();
 
 app.use(cors());
@@ -20,6 +21,7 @@ app.use("/api/strong-topic", strongTopicRoutes);
 app.use("/api/placement-score", placementScoreRoutes);
 app.use("/api/recommendation",recommendationRoutes);
 app.use("/api/rating-history",ratingRoutes);
+app.use("/api/compare-ai",compareAIRoutes);
 app.get("/", (req, res) => {
     res.send("CP Coach Backend Running");
 });
