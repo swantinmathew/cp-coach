@@ -6,43 +6,102 @@ const compareAnalytics = (currentUser, compareUser) => {
             compareUser.rating - currentUser.rating,
 
         contestDifference:
-            compareUser.contestCount - currentUser.contestCount,
+            compareUser.contestCount -
+            currentUser.contestCount,
 
         consistencyDifference:
             compareUser.consistencyScore -
             currentUser.consistencyScore,
 
-        strongerTopics: [],
+        topicGaps: [],
 
-        weakerTopics: []
+        commonStrengths: []
 
     };
 
-    currentUser.topTopics.forEach((topic) => {
+    const allTopics = new Set([
 
-        const opponentTopic =
-            compareUser.topTopics.find(
-                t => t.tag === topic.tag
-            );
+        ...Object.keys(currentUser.topicFrequency),
 
-        if (
-            opponentTopic &&
-            topic.count > opponentTopic.count
-        ) {
+        ...Object.keys(compareUser.topicFrequency)
 
-            comparison.strongerTopics.push(topic.tag);
+    ]);
 
-        }
+    allTopics.forEach((topic) => {
+
+        const currentCount =
+            currentUser.topicFrequency[topic] || 0;
+
+        const compareCount =
+            compareUser.topicFrequency[topic] || 0;
+
+        const difference =
+            compareCount - currentCount;
+
+        comparison.topicGaps.push({
+
+            topic,
+
+            current: currentCount,
+
+            opponent: compareCount,
+
+            difference
+
+        });
 
     });
 
-    currentUser.weakTopics.forEach((topic) => {
+    comparison.topicGaps.sort(
 
-        comparison.weakerTopics.push(topic.tag);
+        (a, b) => b.difference - a.difference
 
-    });
+    );
 
-    return comparison;
+    comparison.biggestWeaknesses =
+
+    comparison.topicGaps
+        .filter(topic => topic.difference > 0)
+        .slice(0,5);
+
+    comparison.biggestStrengths =
+
+    comparison.topicGaps
+        .filter(topic => topic.difference < 0)
+        .sort((a,b)=>a.difference-b.difference)
+        .slice(0,5);
+
+
+    comparison.commonStrengths =
+        currentUser.topTopics
+            .filter(current =>
+                compareUser.topTopics.some(compare =>
+                    compare.tag === current.tag
+                )
+            )
+            .map(topic => topic.tag);
+
+        return {
+
+        ratingDifference:
+            comparison.ratingDifference,
+
+        contestDifference:
+            comparison.contestDifference,
+
+        consistencyDifference:
+            comparison.consistencyDifference,
+
+        commonStrengths:
+            comparison.commonStrengths,
+
+        biggestWeaknesses:
+            comparison.biggestWeaknesses,
+
+        biggestStrengths:
+            comparison.biggestStrengths
+
+    };
 
 };
 
