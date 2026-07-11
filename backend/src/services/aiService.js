@@ -74,7 +74,24 @@ Return JSON only.
 
     const response = await result.response;
 
-    return response.text();
+    const text = response.text();
+
+    const cleaned = text
+        .replace(/```json/g, "")
+        .replace(/```/g, "")
+        .trim();
+
+    try {
+
+        return JSON.parse(cleaned);
+
+    } catch{
+
+        return {
+
+            summary:cleaned
+        };
+    }
 
 };
 

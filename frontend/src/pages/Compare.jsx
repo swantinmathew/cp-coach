@@ -7,12 +7,14 @@ function Compare() {
 
     const location = useLocation();
     const currentProfile = location.state?.currentProfile;
-    const directHandle =
-    location.state?.directHandle;
+    const directHandle = location.state?.directHandle;
     const [compareHandle, setCompareHandle] = useState("");
     const [compareProfile, setCompareProfile] = useState(null)
+    const [comparisonData, setComparisonData] = useState(null);
+    const [aiSummary, setAiSummary] = useState(null);
+    const [aiLoading, setAiLoading] = useState(false);
     const [loading, setLoading] = useState(false);
-    
+
     const compareProfiles = async () => {
 
         try {
@@ -27,6 +29,7 @@ function Compare() {
             setCompareProfile(
                 response.data.result[0]
             );
+            await generateAIComparison();
 
         } catch(error) {
 
@@ -39,6 +42,37 @@ function Compare() {
         }
 
     };
+
+    const generateAIComparison = async () => {
+
+        try {
+
+            setAiLoading(true);
+
+            const response = await API.post(
+                "/compare-ai",
+                {
+                    currentHandle: currentProfile.handle,
+                    compareHandle: compareHandle
+                }
+            );
+
+            setComparisonData(response.data.comparison);
+
+            setAiSummary(response.data.aiSummary);
+
+        } catch (error) {
+
+            console.log(error);
+
+        } finally {
+
+            setAiLoading(false);
+
+        }
+
+    };
+
     useEffect(() => {
 
         if (directHandle) {
@@ -268,36 +302,75 @@ function Compare() {
 
                 <section className="ai-section">
 
-                    <h2>
-
-                        AI Comparison Summary
-
-                    </h2>
+                    <h2>🤖 AI Comparison Summary</h2>
 
                     <div className="ai-box">
 
-                        <ul>
+                        {aiLoading ? (
 
-                            <li>Better in Graphs</li>
+                            <div className="ai-loading">
 
-                            <li>Higher Rating Growth</li>
+                                🤖 Generating AI Analysis...
 
-                            <li>More Consistent Performance</li>
+                            </div>
 
-                        </ul>
+                        ) : aiSummary && (
 
-                        <h4>
+                            <>
 
-                            Recommendation
+                                <div className="ai-summary">
 
-                        </h4>
+                                    {aiSummary.summary}
 
-                        <p>
+                                </div>
 
-                            Focus on Dynamic Programming and
-                            Geometry to reduce the gap.
+                                <h3>💪 Strengths</h3>
 
-                        </p>
+                                <ul>
+
+                                    {aiSummary.strengths.map((item,index)=>(
+
+                                        <li key={index}>{item}</li>
+
+                                    ))}
+
+                                </ul>
+
+                                <h3>⚠ Weaknesses</h3>
+
+                                <ul>
+
+                                    {aiSummary.weaknesses.map((item,index)=>(
+
+                                        <li key={index}>{item}</li>
+
+                                    ))}
+
+                                </ul>
+
+                                <h3>🎯 Recommendation</h3>
+
+                                <p>
+
+                                    {aiSummary.recommendation}
+
+                                </p>
+
+                                <h3>📚 Study Plan</h3>
+
+                                <ul>
+
+                                    {aiSummary.studyPlan.map((item,index)=>(
+
+                                        <li key={index}>{item}</li>
+
+                                    ))}
+
+                                </ul>
+
+                            </>
+
+                        )}
 
                     </div>
 
