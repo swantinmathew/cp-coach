@@ -1,14 +1,15 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const profileRoutes = require("./routes/profileRoutes");
-const contestRoutes = require("./routes/contestRoutes");
-const topicRoutes = require("./routes/topicRoutes");
-const weakTopicRoutes = require("./routes/weakTopicRouter");
-const strongTopicRoutes = require("./routes/strongTopicRoutes");
-const recommendationRoutes = require("./routes/recommendationRoutes");
-const placementScoreRoutes = require("./routes/placementScoreRoutes");
-const ratingRoutes = require("./routes/ratingRoutes");
-const compareAIRoutes = require("./routes/compareAIRoutes");
+const profileRoutes = require("./src/routes/profileRoutes");
+const contestRoutes = require("./src/routes/contestRoutes");
+const topicRoutes = require("./src/routes/topicRoutes");
+const weakTopicRoutes = require("./src/routes/weakTopicRouter");
+const strongTopicRoutes = require("./src/routes/strongTopicRoutes");
+const recommendationRoutes = require("./src/routes/recommendationRoutes");
+const placementScoreRoutes = require("./src/routes/placementScoreRoutes");
+const ratingRoutes = require("./src/routes/ratingRoutes");
+const compareAIRoutes = require("./src/routes/compareAIRoutes");
 const app = express();
 
 app.use(cors());
@@ -25,7 +26,6 @@ app.use("/api/compare-ai",compareAIRoutes);
 app.get("/", (req, res) => {
     res.send("CP Coach Backend Running");
 });
-
 app.listen(5000, () => {
     console.log("Server running on port 5000");
 });

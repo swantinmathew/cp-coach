@@ -18,6 +18,10 @@ const {
     buildAnalytics
 } = require("../services/analyticsService");
 
+const {
+    generateComparisonSummary
+} = require("../services/aiService");
+
 const compareAI = async (req, res) => {
 
     try {
@@ -73,12 +77,22 @@ const compareAI = async (req, res) => {
                 compareSubmissionData.result
 
             );
-
         const comparison =
             compareAnalytics(
                 currentAnalytics,
                 compareUserAnalytics
-            );    
+            ); 
+            
+        const aiSummary =
+        await generateComparisonSummary(
+
+            currentAnalytics,
+
+            compareUserAnalytics,
+
+            comparison
+
+        );    
 
         res.json({
 
@@ -86,7 +100,9 @@ const compareAI = async (req, res) => {
 
             compareUser: compareUserAnalytics,
 
-            comparison
+            comparison,
+
+            aiSummary
 
         });
 

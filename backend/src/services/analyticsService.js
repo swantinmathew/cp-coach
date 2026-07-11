@@ -151,6 +151,8 @@ const buildAnalytics = (profile, contests, submissions) => {
 
         consistencyScore,
 
+        topicFrequency,
+
         topTopics,
 
         weakTopics
